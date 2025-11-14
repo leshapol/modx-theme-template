@@ -1,3 +1,5 @@
+@use "../core" as *;
+
 .faq {
   &__title {
     margin-bottom: clamp(40px, 4vw, 64px);
@@ -21,7 +23,7 @@
     border: 1.5px solid #e4e4e4;
 
     &.active {
-      background: $color-primary;
+      background: var(--color-primary);
 
       .faq__question {
         color: #fff;
@@ -31,7 +33,7 @@
       .faq__arrow {
         transform: rotate(270deg);
         background-image: none;
-        mask-image: $icon-chevron-mask;
+        mask-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9 18L15 12L9 6' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
         mask-repeat: no-repeat;
         mask-position: center;
         mask-size: 24px;
@@ -91,7 +93,7 @@
     height: 24px;
     flex-shrink: 0;
 
-    background-image: $icon-chevron;
+    background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9 18L15 12L9 6' stroke='%23061927' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 24px;

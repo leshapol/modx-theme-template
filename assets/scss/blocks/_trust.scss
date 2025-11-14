@@ -1,3 +1,5 @@
+@use "../core" as *;
+
 .trust {
   &__header {
     margin-bottom: 50px;
@@ -121,10 +123,10 @@
   }
 
   &__small-card {
-    background: $color-accent;
+    background: var(--color-accent);
     border-radius: 32px;
     height: 50%;
-    color: $color-dark;
+    color: var(--color-dark);
     position: relative;
     overflow: hidden;
     min-height: 250px;

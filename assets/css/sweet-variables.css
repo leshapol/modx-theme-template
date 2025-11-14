@@ -1,0 +1,20 @@
+:root {
+  --color-primary: [[++color_primary]];
+  --color-secondary: [[++color_secondary]];
+  --color-accent: [[++color_accent]];
+  --color-light: [[++color_light]];
+  --color-dark: [[++color_dark]];
+  --color-gray: [[++color_gray]];
+  --color-bg: [[++color_bg]];
+  --color-text: [[++color_text]];
+
+  --font-main: [[++font_main]];
+
+  --radius: [[++ui_radius]];
+  --section-padding: [[++section_padding]];
+  --transition-fast: [[++transition_fast]];
+
+  --container-width: [[++container_width]];
+  --container-narrow-width: [[++container_narrow_width]];
+  --container-padding: [[++container_padding]];
+}

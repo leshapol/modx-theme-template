@@ -1,11 +1,13 @@
+@use "../core" as *;
+
 .header {
-  font-family: $font-main;
-  color: $color-primary;
+  font-family: var(--font-main);
+  color: var(--color-primary);
   position: static;
   top: 0;
   left: 0;
   width: 100%;
-  background: $color-light;
+  background: var(--color-light);
   z-index: 200;
   transition: padding 0.25s ease, box-shadow 0.25s ease;
 
@@ -58,7 +60,7 @@
     height: 16px;
     margin-left: 4px;
     flex-shrink: 0;
-    background-image: $icon-chevron;
+    background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9 18L15 12L9 6' stroke='%23061927' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -82,12 +84,12 @@
     a {
       font-size: 16px;
       font-weight: 500;
-      color: $color-primary;
+      color: var(--color-primary);
       text-decoration: none;
       @include transition(color);
 
       &:hover {
-        color: $color-accent;
+        color: var(--color-accent);
       }
     }
 
@@ -117,7 +119,7 @@
     min-width: 220px;
     width: max-content;
 
-    background: $color-light;
+    background: var(--color-light);
     border-radius: 10px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 
@@ -138,12 +140,12 @@
       display: block;
       padding: 12px 20px;
       white-space: nowrap;
-      color: $color-primary;
+      color: var(--color-primary);
     }
 
     li a:hover {
-      background: rgba($color-accent, 0.07);
-      color: $color-accent;
+      background: color-mix(in srgb, var(--color-accent) 7%, transparent);
+      color: var(--color-accent);
     }
   }
 
@@ -182,7 +184,7 @@
       display: block;
       width: 100%;
       height: 2px;
-      background: $color-primary;
+      background: var(--color-primary);
       border-radius: 1px;
       transition: 0.3s;
     }
@@ -206,7 +208,7 @@
     left: 0;
     width: 100%;
     z-index: 999;
-    background: $color-light;
+    background: var(--color-light);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
     padding: 0 12px 24px;
 
@@ -231,7 +233,7 @@
     .header__mobile-toggle {
       font-size: 18px;
       font-weight: 500;
-      color: $color-primary;
+      color: var(--color-primary);
       background: none;
       border: none;
       text-decoration: none;

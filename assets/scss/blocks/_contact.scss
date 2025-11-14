@@ -1,6 +1,8 @@
+@use "../core" as *;
+
 .contact {
-  background-color: $color-primary;
-  color: $color-light;
+  background-color: var(--color-primary);
+  color: var(--color-light);
   padding: 100px 0;
   border-radius: 20px 20px 0 0;
 
@@ -21,7 +23,7 @@
     font-size: 14px;
     letter-spacing: 0.8px;
     margin-bottom: 12px;
-    color: rgba($color-light, 0.8);
+    color: color-mix(in srgb, var(--color-light) 80%, transparent);
   }
 
   &__title {
@@ -53,18 +55,18 @@
 
   &__text,
   a.contact__text {
-    color: $color-light;
+    color: var(--color-light);
     font-size: 16px;
     text-decoration: none;
     @include transition(color);
 
     &:hover {
-      color: $color-accent;
+      color: var(--color-accent);
     }
   }
 
   &__form {
-    background-color: rgba($color-light, 0.1);
+    background-color: color-mix(in srgb, var(--color-light) 10%, transparent);
     border-radius: 12px;
     padding: 40px 30px;
     display: flex;
@@ -96,14 +98,14 @@
       padding: 14px 16px;
       border: 1px solid transparent;
       border-radius: 6px;
-      background-color: $color-light;
+      background-color: var(--color-light);
       font-size: 16px;
-      color: $color-primary;
+      color: var(--color-primary);
       outline: none;
       @include transition(border-color);
 
       &:focus {
-        border-color: $color-accent;
+        border-color: var(--color-accent);
       }
 
       &::placeholder {

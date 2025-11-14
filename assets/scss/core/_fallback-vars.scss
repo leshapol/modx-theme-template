@@ -1,0 +1,21 @@
+/* Fallback CSS Variables for local development */
+:root {
+  --color-primary: #0061a8;
+  --color-secondary: #ff6a3d;
+  --color-accent: #d2ebfb;
+  --color-light: #ffffff;
+  --color-dark: #0a263d;
+  --color-gray: #f3f6f9;
+  --color-bg: #ffffff;
+  --color-text: #041715;
+
+  --font-main: "Montserrat", sans-serif;
+
+  --radius: 16px;
+  --section-padding: 80px;
+  --transition-fast: 0.2s;
+
+  --container-width: 1376px;
+  --container-narrow-width: 1352px;
+  --container-padding: 20px;
+}

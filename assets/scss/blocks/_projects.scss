@@ -1,6 +1,8 @@
+@use "../core" as *;
+
 .projects {
   --container-width: calc(
-    #{$container-narrow-width} + #{$container-padding} * 2
+    var(--container-narrow-width) + var(--container-padding) * 2
   );
 
   /* Grid layout */
@@ -175,7 +177,7 @@
     }
 
     &:hover {
-      background: $color-primary;
+      background: var(--color-primary);
     }
   }
 }

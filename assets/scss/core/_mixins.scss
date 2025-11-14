@@ -5,9 +5,9 @@
 // Responsive container
 @mixin container {
   width: 100%;
-  max-width: $container-width;
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 $container-padding;
+  padding: 0 var(--container-padding);
 }
 
 // Fluid font sizing
@@ -18,7 +18,7 @@
 
 // Transition helper
 @mixin transition($props...) {
-  transition: $props 0.3s ease;
+  transition: $props var(--transition-fast) ease;
 }
 
 // Flex center

@@ -1,5 +1,5 @@
 const gulp = require("gulp");
-const sass = require("gulp-sass")(require("sass"));
+const sass = require("gulp-sass")(require("sass-embedded"));
 const sourcemaps = require("gulp-sourcemaps");
 const concat = require("gulp-concat");
 const cleanCSS = require("gulp-clean-css");

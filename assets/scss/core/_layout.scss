@@ -1,12 +1,11 @@
-// ======================================
-// BASE LAYOUT ELEMENTS
-// ======================================
+@use "./mixins" as *;
+@use "./breakpoints" as *;
 
 .container {
   @include container;
 
   &--narrow {
-    max-width: $container-narrow-width !important;
+    max-width: var(--container-narrow-width) !important;
   }
 }
 
@@ -20,7 +19,7 @@
   justify-content: center;
   gap: 8px;
 
-  font-family: $font-main;
+  font-family: var(--font-main);
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
@@ -32,20 +31,19 @@
   cursor: pointer;
   text-decoration: none;
   user-select: none;
-  transition: all 0.25s ease;
+  transition: all var(--transition-fast, 0.25s) ease;
 
-  /* ICON — now color-controlled */
   &::after {
     content: "";
     width: 24px;
     height: 24px;
 
-    mask-image: $icon-chevron-mask;
+    mask-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9 18L15 12L9 6' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
     mask-repeat: no-repeat;
     mask-size: contain;
 
     background-color: currentColor;
-    transition: transform 0.25s ease;
+    transition: transform var(--transition-fast, 0.25s) ease;
   }
 
   &:hover::after {
@@ -56,22 +54,21 @@
     text-decoration: none;
   }
 
-  /* VARIANTS */
   &--dark {
-    background: $color-primary;
+    background: var(--color-primary);
     color: #fff;
 
     &:hover {
-      background: lighten($color-primary, 5%);
+      background: color-mix(in srgb, var(--color-primary), white 8%);
     }
   }
 
   &--light {
     background: #fff;
-    color: $color-primary;
+    color: var(--color-primary);
 
     &:hover {
-      background: $color-accent;
+      background: var(--color-accent);
     }
   }
 
@@ -81,11 +78,10 @@
     color: #fff;
 
     &:hover {
-      background: rgba($color: $color-primary, $alpha: 0.2);
+      background: color-mix(in srgb, var(--color-primary) 20%, transparent);
     }
   }
 
-  /* SIZES */
   &--big {
     padding: 24px 32px;
 
@@ -100,50 +96,41 @@
   }
 }
 
-// ------------------------------------------
-// Global Section Spacing
-// ------------------------------------------
-
 section {
-  padding: clamp(60px, 8vw, 120px) 0;
+  padding: var(--section-padding) 0;
 }
 
-// Compact section spacing
 .section--tight {
-  padding: clamp(40px, 6vw, 80px) 0;
+  padding: calc(var(--section-padding) * 0.75) 0;
 }
 
-// Wide spacing section
 .section--wide {
-  padding: clamp(100px, 10vw, 180px) 0;
+  padding: calc(var(--section-padding) * 1.25) 0;
 }
 
-// Extra large spacing section
 .section--xl {
-  padding: clamp(140px, 12vw, 240px) 0;
+  padding: calc(var(--section-padding) * 1.5) 0;
 }
 
 .section--border-top {
-  border-top: 1px solid rgba(4, 23, 21, 0.15);
-}
-.section--border-bottom {
-  border-bottom: 1px solid rgba(4, 23, 21, 0.15);
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
 }
 
-// ------------------------------------------
-// Titles
-// ------------------------------------------
+.section--border-bottom {
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 15%, transparent);
+}
 
 .section-title {
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 400;
   line-height: 1.3;
   margin-bottom: clamp(32px, 5vw, 64px);
-  color: $color-dark;
+  color: var(--color-dark);
 }
+
 .section-overtitle {
   font-size: 16px;
   text-transform: uppercase;
   margin-bottom: 16px;
-  color: $color-primary;
+  color: var(--color-primary);
 }

@@ -1,3 +1,5 @@
+@use "../core" as *;
+
 .hero {
   overflow: hidden;
   padding: 0;
@@ -8,7 +10,7 @@
     justify-content: space-between;
     gap: 40px;
 
-    background: $color-primary;
+    background: var(--color-primary);
     color: #fff;
     min-height: 760px;
     border-radius: 24px;
