@@ -1,1 +1,0 @@
-console.log('Hero module initialized');

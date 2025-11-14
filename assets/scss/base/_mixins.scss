@@ -1,1 +1,36 @@
-@mixin flex-center { display: flex; align-items: center; justify-content: center; }
+// ======================================
+// MIXINS
+// ======================================
+
+// Responsive container
+@mixin container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+// Fluid font sizing
+// Example: @include fluid-font(18, 14);
+@mixin fluid-font($max, $min) {
+  font-size: clamp(#{$min}px, 2vw, #{$max}px);
+}
+
+// Transition helper
+@mixin transition($props...) {
+  transition: $props 0.3s ease;
+}
+
+// Flex center
+@mixin flex-center($dir: row) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

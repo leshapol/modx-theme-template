@@ -1,0 +1,124 @@
+.contact {
+  background-color: $color-primary;
+  color: $color-light;
+  padding: 100px 0;
+  border-radius: 20px 20px 0 0;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 60px;
+
+    @media (max-width: $lg) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+    color: rgba($color-light, 0.8);
+  }
+
+  &__title {
+    @include fluid-font(36, 24);
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  &__info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+
+      @media (max-width: $lg) {
+        justify-content: center;
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 18px;
+  }
+
+  &__text,
+  a.contact__text {
+    color: $color-light;
+    font-size: 16px;
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__form {
+    background-color: rgba($color-light, 0.1);
+    border-radius: 12px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (max-width: $md) {
+      padding: 30px 20px;
+    }
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    textarea {
+      grid-column: span 2;
+      resize: vertical;
+    }
+
+    @media (max-width: $md) {
+      grid-template-columns: 1fr;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background-color: $color-light;
+      font-size: 16px;
+      color: $color-primary;
+      outline: none;
+      @include transition(border-color);
+
+      &:focus {
+        border-color: $color-accent;
+      }
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+  }
+
+  &__btn {
+    align-self: flex-start;
+    border-radius: 8px;
+    padding: 14px 28px;
+
+    @media (max-width: $lg) {
+      align-self: center;
+    }
+  }
+}

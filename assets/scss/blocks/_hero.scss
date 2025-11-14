@@ -1,1 +1,106 @@
-.hero { @include flex-center; padding: 60px; background: $color-secondary; color: $color-primary; }
+.hero {
+  overflow: hidden;
+  padding: 0;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    background: $color-primary;
+    color: #fff;
+    min-height: 760px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    padding: 0 64px;
+
+    @media (max-width: $lg) {
+      flex-direction: column;
+      text-align: center;
+      padding: 60px 0 0;
+      min-height: auto;
+    }
+
+    @media (max-width: $md) {
+      gap: 20px;
+    }
+  }
+
+  /* TEXT */
+  &__content {
+    max-width: 725px;
+    z-index: 2;
+
+    @media (max-width: $lg) {
+      padding-left: 20px;
+      padding-right: 20px;
+      max-width: 100%;
+    }
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: clamp(40px, 4vw, 60px);
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 24px;
+    color: #fff;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 64px;
+    opacity: 0.8;
+
+    @media (max-width: $md) {
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+  }
+
+  /* IMAGE SIDE */
+  &__image-wrapper {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    overflow: hidden;
+
+    @media (max-width: $lg) {
+      position: relative;
+      width: 100%;
+      height: auto;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+  }
+
+  &__image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: right bottom;
+
+    @media (max-width: $lg) {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: bottom right;
+    }
+  }
+}

@@ -1,9 +1,22 @@
+// Core config (SweetCSS variables)
 @import "config";
 @import "variables";
+
+// Base styles
 @import "base/reset";
 @import "base/typography";
 @import "base/mixins";
-@import "layout/grid";
+@import "base/layout";
+
+// Layouts
 @import "layout/header";
 @import "layout/footer";
+
+// Blocks
 @import "blocks/hero";
+@import "blocks/trust";
+@import "blocks/services";
+@import "blocks/reviews";
+@import "blocks/projects";
+@import "blocks/faq";
+@import "blocks/contact";

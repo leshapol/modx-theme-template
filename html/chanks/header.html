@@ -1,1 +1,93 @@
-<header class='header'><h1>Site Header</h1></header>
+<header class="header">
+  <div class="header__main">
+    <div class="container header__container">
+      <!-- Left nav -->
+      <nav class="header__nav header__nav--left">
+        <ul>
+          <li><a href="#">Item 1</a></li>
+          <li><a href="#">Item 2</a></li>
+
+          <li class="has-sub">
+            <a href="#">Item 3</a>
+            <span class="header__arrow"></span>
+
+            <ul class="header__dropdown">
+              <li><a href="#">Subitem 3.1</a></li>
+              <li><a href="#">Subitem 3.2</a></li>
+              <li><a href="#">Subitem 3.3</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Logo -->
+      <a href="/" class="header__logo">
+        <img
+          src="assets/img/logo.png"
+          alt="Vertigo logo"
+          width="150"
+          height="50"
+        />
+      </a>
+
+      <!-- Right nav -->
+      <nav class="header__nav header__nav--right">
+        <ul>
+          <li><a href="#">Item 4</a></li>
+          <li><a href="#">Item 5</a></li>
+
+          <li class="has-sub">
+            <a href="#">Item 6</a>
+            <span class="header__arrow"></span>
+
+            <ul class="header__dropdown">
+              <li><a href="#">Subitem 6.1</a></li>
+              <li><a href="#">Subitem 6.2</a></li>
+              <li><a href="#">Subitem 6.3</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Burger -->
+      <button class="header__burger js-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="header__mobile js-mobile-menu">
+    <ul>
+      <li><a href="#">Item 1</a></li>
+      <li><a href="#">Item 2</a></li>
+
+      <li class="has-sub">
+        <button class="header__mobile-toggle">
+          Item 3 <span class="header__arrow"></span>
+        </button>
+
+        <ul class="header__dropdown">
+          <li><a href="#">Subitem 3.1</a></li>
+          <li><a href="#">Subitem 3.2</a></li>
+          <li><a href="#">Subitem 3.3</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Item 4</a></li>
+      <li><a href="#">Item 5</a></li>
+
+      <li class="has-sub">
+        <button class="header__mobile-toggle">
+          Item 6 <span class="header__arrow"></span>
+        </button>
+
+        <ul class="header__dropdown">
+          <li><a href="#">Subitem 6.1</a></li>
+          <li><a href="#">Subitem 6.2</a></li>
+          <li><a href="#">Subitem 6.3</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>

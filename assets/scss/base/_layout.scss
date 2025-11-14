@@ -1,0 +1,149 @@
+// ======================================
+// BASE LAYOUT ELEMENTS
+// ======================================
+
+.container {
+  @include container;
+
+  &--narrow {
+    max-width: $container-narrow-width !important;
+  }
+}
+
+// -----------------------------
+// Base Button Component
+// -----------------------------
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-family: $font-main;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  white-space: nowrap;
+
+  padding: 20px 32px;
+  border-radius: 999px;
+
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  transition: all 0.25s ease;
+
+  /* ICON — now color-controlled */
+  &::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+
+    mask-image: $icon-chevron-mask;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+
+    background-color: currentColor;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover::after {
+    transform: translateX(4px);
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  /* VARIANTS */
+  &--dark {
+    background: $color-primary;
+    color: #fff;
+
+    &:hover {
+      background: lighten($color-primary, 5%);
+    }
+  }
+
+  &--light {
+    background: #fff;
+    color: $color-primary;
+
+    &:hover {
+      background: $color-accent;
+    }
+  }
+
+  &--outline-white {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+
+    &:hover {
+      background: rgba($color: $color-primary, $alpha: 0.2);
+    }
+  }
+
+  /* SIZES */
+  &--big {
+    padding: 24px 32px;
+
+    @media (max-width: $md) {
+      padding: 18px 26px;
+    }
+  }
+
+  &--small {
+    padding: 16px 24px;
+    font-size: 15px;
+  }
+}
+
+// ------------------------------------------
+// Global Section Spacing
+// ------------------------------------------
+
+section {
+  padding: clamp(60px, 8vw, 120px) 0;
+}
+
+// Compact section spacing
+.section--tight {
+  padding: clamp(40px, 6vw, 80px) 0;
+}
+
+// Wide spacing section
+.section--wide {
+  padding: clamp(100px, 10vw, 180px) 0;
+}
+
+// Extra large spacing section
+.section--xl {
+  padding: clamp(140px, 12vw, 240px) 0;
+}
+
+.section--border-top {
+  border-top: 1px solid rgba(4, 23, 21, 0.15);
+}
+.section--border-bottom {
+  border-bottom: 1px solid rgba(4, 23, 21, 0.15);
+}
+
+// ------------------------------------------
+// Titles
+// ------------------------------------------
+
+.section-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: clamp(32px, 5vw, 64px);
+  color: $color-dark;
+}
+.section-overtitle {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: $color-primary;
+}
