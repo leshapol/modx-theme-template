@@ -3,8 +3,7 @@ node_modules/
 package-lock.json
 
 # Build output
-assets/build/
-build/
+assets/build/style.css.map
 index.html
 
 # OS / IDE
