@@ -89,7 +89,7 @@
       @include transition(color);
 
       &:hover {
-        color: var(--color-accent);
+        color: var(--color-secondary);
       }
     }
 
@@ -144,8 +144,8 @@
     }
 
     li a:hover {
-      background: color-mix(in srgb, var(--color-accent) 7%, transparent);
-      color: var(--color-accent);
+      background: color-mix(in srgb, var(--color-secondary) 7%, transparent);
+      color: var(--color-secondary);
     }
   }
 

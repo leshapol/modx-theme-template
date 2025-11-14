@@ -1,40 +1,132 @@
 <section class="contact">
   <div class="contact__container container">
-    <div class="contact__content">
-      <p class="contact__subtitle">Ihre Gesundheit ist bestens aufgehoben</p>
-      <h2 class="contact__title">
-        Kontaktieren Sie uns für Ihre medizinische Beratung in Zürich
-      </h2>
+    <div class="contact__inner">
+      <div class="contact__details">
+        <p class="contact__overtitle section-overtitle">
+          Ihre Gesundheit in besten H&auml;nden
+        </p>
+        <h2 class="contact__title section-title">
+          Kontaktieren Sie uns f&uuml;r Ihre medizinische Beratung in
+          Z&uuml;rich
+        </h2>
 
-      <ul class="contact__info">
-        <li>
-          <span class="contact__icon">📍</span>
-          <span class="contact__text">Seefeldstrasse 20, 8008 Zürich</span>
-        </li>
-        <li>
-          <span class="contact__icon">📞</span>
-          <a href="tel:0431234567" class="contact__text">043 123 45 67</a>
-        </li>
-        <li>
-          <span class="contact__icon">✉️</span>
-          <a href="mailto:kontakt@vertigorecht.ch" class="contact__text"
-            >kontakt@vertigorecht.ch</a
-          >
-        </li>
-      </ul>
-    </div>
+        <ul class="contact__meta">
+          <li>
+            <img
+              class="contact__meta-icon"
+              src="assets/img/icons/map-pin.svg"
+              alt=""
+              loading="lazy"
+            />
 
-    <form class="contact__form js-contact-form" action="#" method="post">
-      <div class="contact__fields">
-        <input type="text" name="name" placeholder="Name*" required />
-        <input type="text" name="address" placeholder="Adresse" />
-        <input type="tel" name="phone" placeholder="Tel." />
-        <input type="email" name="email" placeholder="E-Mail*" required />
-        <textarea name="message" placeholder="Nachricht"></textarea>
+            <span class="contact__meta-text"
+              >Seefeldstrasse 12, 8008 Z&uuml;rich</span
+            >
+          </li>
+          <li>
+            <img
+              class="contact__meta-icon"
+              src="assets/img/icons/phone-call.svg"
+              alt=""
+              loading="lazy"
+            />
+
+            <a href="tel:0991234567" class="contact__meta-text"
+              >099 123 45 67</a
+            >
+          </li>
+          <li>
+            <img
+              class="contact__meta-icon"
+              src="assets/img/icons/envelope.svg"
+              alt=""
+              loading="lazy"
+            />
+
+            <a
+              href="mailto:kontakt@vertigoberatung.ch"
+              class="contact__meta-text"
+              >kontakt@vertigoberatung.ch</a
+            >
+          </li>
+        </ul>
       </div>
-      <button type="submit" class="contact__btn btn btn--light">
-        Jetzt Anfrage senden
-      </button>
-    </form>
+
+      <form
+        class="contact__form form js-contact-form"
+        action="#"
+        method="post"
+        novalidate
+      >
+        <div class="form__field form__field--required">
+          <label class="form__label" for="contact-name">
+            Name <span aria-hidden="true">*</span>
+          </label>
+          <input
+            class="form__control"
+            type="text"
+            name="name"
+            id="contact-name"
+            placeholder=" "
+            required
+          />
+        </div>
+        <div class="form__field form__field--required">
+          <label class="form__label" for="contact-address">
+            Adresse <span aria-hidden="true">*</span>
+          </label>
+          <input
+            class="form__control"
+            type="text"
+            name="address"
+            id="contact-address"
+            placeholder=" "
+            required
+          />
+        </div>
+        <div class="form__field form__field--required">
+          <label class="form__label" for="contact-phone">
+            Tel. <span aria-hidden="true">*</span>
+          </label>
+          <input
+            class="form__control"
+            type="tel"
+            name="phone"
+            id="contact-phone"
+            placeholder=" "
+            required
+          />
+        </div>
+        <div class="form__field form__field--required">
+          <label class="form__label" for="contact-email">
+            E-Mail <span aria-hidden="true">*</span>
+          </label>
+          <input
+            class="form__control"
+            type="email"
+            name="email"
+            id="contact-email"
+            placeholder=" "
+            required
+          />
+        </div>
+        <div class="form__field form__field--textarea form__field--required">
+          <label class="form__label" for="contact-message">
+            Nachricht <span aria-hidden="true">*</span>
+          </label>
+          <textarea
+            class="form__control"
+            name="message"
+            id="contact-message"
+            placeholder=" "
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="form__submit contact__submit btn btn--light">
+          Jetzt Erstgespr&auml;ch buchen
+        </button>
+        <p class="form__status contact__status" aria-live="polite"></p>
+      </form>
+    </div>
   </div>
 </section>

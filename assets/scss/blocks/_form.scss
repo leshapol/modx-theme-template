@@ -1,0 +1,113 @@
+@use "../core" as *;
+
+.form {
+  --form-control-bg: var(--color-accent);
+  --form-control-text: var(--color-primary);
+  --form-control-placeholder: var(--color-primary);
+  --form-control-radius: 20px;
+  --form-control-border: rgba(255, 255, 255, 0.1);
+  --form-control-focus-border: var(--color-secondary);
+  --form-control-focus-shadow: color-mix(
+    in srgb,
+    var(--color-secondary) 40%,
+    transparent
+  );
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__field {
+    width: 100%;
+    position: relative;
+  }
+
+  &__label {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--form-control-placeholder);
+    transition: transform var(--transition-fast) ease,
+      color var(--transition-fast) ease, opacity var(--transition-fast) ease;
+    pointer-events: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    span {
+      color: rgba(234, 67, 53, 0.9);
+      font-size: 22px;
+      line-height: 1;
+    }
+  }
+
+  &__control {
+    width: 100%;
+    border: 1px solid var(--form-control-border);
+    border-radius: var(--form-control-radius);
+    padding: 30px 32px 12px;
+    background: var(--form-control-bg);
+    font-size: 20px;
+    color: var(--form-control-text);
+    outline: none;
+    transition: border-color var(--transition-fast) ease,
+      box-shadow var(--transition-fast) ease;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus {
+      border-color: var(--form-control-focus-border);
+      box-shadow: 0 0 0 2px var(--form-control-focus-shadow);
+    }
+  }
+
+  &__field--focused &__label,
+  &__field--filled &__label {
+    transform: translateY(calc(-50% - 18px));
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  &__field--textarea {
+    .form__control {
+      border-radius: 20px;
+      min-height: 160px;
+      resize: vertical;
+      padding-top: 30px;
+    }
+
+    .form__label {
+      top: 20px;
+      transform: translateY(0);
+    }
+
+    &.form__field--focused .form__label,
+    &.form__field--filled .form__label {
+      transform: translateY(-12px);
+      font-size: 14px;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    outline: none;
+    border: none;
+  }
+
+  &__status {
+    min-height: 20px;
+    font-size: 14px;
+    color: color-mix(in srgb, var(--color-light) 80%, transparent);
+    margin: 0;
+    opacity: 0;
+    transition: opacity var(--transition-fast) ease;
+  }
+
+  &.is-success &__status {
+    opacity: 1;
+  }
+}
