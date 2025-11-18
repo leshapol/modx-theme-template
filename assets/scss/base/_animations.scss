@@ -1,0 +1,43 @@
+/* ----------------------------------------------
+   Base styles for all animated elements
+---------------------------------------------- */
+[data-anim] {
+  opacity: 0;
+  transform: translate3d(0, 0, 0); // baseline transform (prevents layout jumps)
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: opacity, transform;
+}
+
+/* ----------------------------------------------
+   Initial positions (anim-init)
+   These are applied BEFORE the element enters view.
+---------------------------------------------- */
+[data-anim].anim-init.anim-fade-up {
+  transform: translate3d(0, 40px, 0);
+}
+
+[data-anim].anim-init.anim-fade-down {
+  transform: translate3d(0, -40px, 0);
+}
+
+[data-anim].anim-init.anim-fade-left {
+  transform: translate3d(40px, 0, 0);
+}
+
+[data-anim].anim-init.anim-fade-right {
+  transform: translate3d(-40px, 0, 0);
+}
+
+[data-anim].anim-init.anim-fade-in {
+  transform: translate3d(0, 0, 0);
+}
+
+/* ----------------------------------------------
+   Final animated state (anim-animate)
+   Applied when the element enters the viewport.
+---------------------------------------------- */
+[data-anim].anim-animate {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
