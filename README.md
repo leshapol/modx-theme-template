@@ -1,8 +1,8 @@
 # MODX Front-End Template Project
 
 ## 📦 Overview
-This repository contains a front-end development structure for **MODX template building** using **Gulp**, **SCSS**, and **BrowserSync**.  
-It supports **SweetCSS**, **MinifyX**, and modular **HTML assembly** from chunks (`@@include`).
+This repository contains a front-end development structure for **MODX template building** using **Gulp** and **SCSS**.  
+It supports **SweetCSS**, **MinifyX**, and modular **HTML assembly** from chunks (`@@include`), although HTML compilation and BrowserSync are disabled for day-to-day MODX work.
 
 The setup allows you to develop locally, preview live changes, and later move all files into MODX templates and ContentBlocks.
 
@@ -22,9 +22,8 @@ npm run dev
 
 - Compiles SCSS → `/assets/build/style.css`
 - Combines JS → `/assets/build/main.js`
-- Builds `index.html` from `/html/index.html`
-- Opens it automatically in the browser via BrowserSync
-- Watches all SCSS, JS, and HTML changes in real-time
+- Watches SCSS and JS files for changes (refresh your MODX preview manually)
+- Skips HTML assembly and BrowserSync (templates now live directly in MODX)
 
 ### 3. Build production-ready files
 ```bash
@@ -69,8 +68,8 @@ When development is finished:
 
 | Command | Description |
 |----------|-------------|
-| `npm run dev` | Builds all assets, runs BrowserSync, and watches for changes |
-| `npm run build` | Builds all assets and compiles the HTML for preview |
+| `npm run dev` | Builds CSS/JS and watches those sources (BrowserSync disabled) |
+| `npm run build` | Builds CSS/JS only; HTML compilation is commented out |
 | `npm run build:css` | Compiles only SCSS into `/assets/build/style.css` |
 
 ---
@@ -79,10 +78,10 @@ When development is finished:
 
 - **Source:** `html/index.html`  
 - **Includes:** via `@@include('chanks/head.html')` etc.  
-- **Output:** compiled `index.html` at project root  
-- **BrowserSync:** automatically refreshes the browser on save  
+- **Output:** compiled `index.html` at project root (**task disabled by default; re-enable the commented `html` task in `gulpfile.js` if you still need a static preview**)  
+- **BrowserSync:** disabled while developing directly inside MODX  
 
-Original files inside `/html/` are never overwritten.
+Original files inside `/html/` are never overwritten; they now serve as references for MODX chunks/content blocks.
 
 ---
 
@@ -107,6 +106,6 @@ Thumbs.db
 
 ## 🧠 Notes
 
-- Built with `gulp-file-include`, `gulp-sass`, and `browser-sync`
+- Built with `gulp-sass`; `gulp-file-include` is available but commented out, and `browser-sync` is intentionally disabled
 - SCSS structured with BEM naming and modular imports
 - Fully compatible with MODX workflow via SweetCSS and MinifyX

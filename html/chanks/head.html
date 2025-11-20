@@ -1,51 +1,148 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<base href="[[++site_url]]" />
+<meta charset="[[++modx_charset]]" />
 
-<!-- SEO Meta -->
-<title>Vertigo – Rechtliche Beratung in Zürich</title>
-<meta
-  name="description"
-  content="Kompetente juristische Beratung in Zürich – Ihr zuverlässiger Partner für Arbeits-, Zivil- und Familienrecht."
-/>
-<meta
-  name="keywords"
-  content="Rechtsanwalt Zürich, juristische Beratung, Familienrecht, Arbeitsrecht, Zivilrecht"
-/>
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="assets/img/favicon.png" />
-<link rel="apple-touch-icon" href="assets/img/favicon.png" />
-
-<!-- Google Fonts: Montserrat (all main weights) -->
-<link
-  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-  rel="stylesheet"
-/>
-
-<!-- Styles -->
-<link rel="stylesheet" href="assets/build/style.css" />
-<!-- <link rel="stylesheet" href="assets/css/sweet-variables.css" /> -->
-
-<!-- MODX MinifyX bundle -->
-<!--
-[[MinifyX?
-  &css=`assets/build/style.css,assets/css/sweet-variables.css`
-]]
--->
-
-<!-- Canonical & Robots -->
-<link rel="canonical" href="/" />
+<title>[[*longtitle:empty=`[[*pagetitle]]`]] — [[++site_name]]</title>
+<meta name="description" content="[[*description]]" />
 <meta name="robots" content="index, follow" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="Vertigo – Rechtliche Beratung in Zürich" />
-<meta
-  property="og:description"
-  content="Kompetente juristische Beratung in Zürich – Ihr zuverlässiger Partner für Arbeits-, Zivil- und Familienrecht."
-/>
-<meta property="og:type" content="website" />
-<meta property="og:image" content="assets/img/og-image.jpg" />
+[[!If? &subject=`[[++analytics]]` &operator=`notempty` &then=` [[!If?
+&subject=`[[++anatag]]` &operator=`is` &operand=`tagmanager` &then=`
 
-<!-- Analytics Placeholder -->
-<!-- Insert Google Tag Manager or analytics script here -->
+<!-- Google Tag Manager -->
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "[[++analytics]]");
+</script>
+<!-- End Google Tag Manager -->
+
+` &else=`
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=[[++analytics]]"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "[[++analytics]]");
+</script>
+
+[[++conversion-snippet]] `]] `]] [[!If? &subject=`[[++favicon]]`
+&operator=`notempty` &then=`
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="[[++favicon:pthumb=`w=180&h=180`]]"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="[[++favicon:pthumb=`w=32&h=32`]]"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="[[++favicon:pthumb=`w=16&h=16`]]"
+/>
+<link
+  rel="mask-icon"
+  href="[[++favicon:pthumb=`w=180&h=180`]]"
+  color="#ffffff"
+/>
+<meta name="msapplication-TileColor" content="[[++pagecolor1]]" />
+<meta name="theme-color" content="[[++pagecolor1]]" />
+` &else=`
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="[[++logo:pthumb=`w=180&h=180`]]"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="[[++logo:pthumb=`w=32&h=32`]]"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="[[++logo:pthumb=`w=16&h=16`]]"
+/>
+<link rel="mask-icon" href="[[++logo:pthumb=`w=180&h=180`]]" color="#ffffff" />
+<meta name="msapplication-TileColor" content="[[++pagecolor1]]" />
+<meta name="theme-color" content="[[++pagecolor1]]" />
+`]]
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+[[!LoadFonts? &font1=`[[++font1]]` &font2=`[[++font2]]` ]]
+
+<!-- Styles -->
+<!--<link rel="stylesheet" href="[[++template-path]]/assets/build/style.css" />-->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="[[!lastModified? &path=`[[++base_path]][[++template-path]]/assets/build/` &dis=`[[++template-path]]/assets/build/` &file=`style.css`]]"
+/>
+<!-- <link rel="stylesheet" href="assets/components/csssweet/custom/custom_css.min.css" /> -->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="[[!lastModified? &path=`[[++base_path]]assets/components/csssweet/custom/` &dis=`assets/components/csssweet/custom/` &file=`custom_css.min.css`]]"
+/>
+
+<!-- komm-->
+
+[[!+ss_meta.meta_description]] [[!+ss_meta.robots]] [[- Da SEO Tools Canocial
+nicht richtig funktioniert wird das Plugin von Bob genutzt -]] [[!Canonical]]
+[[!+ss_meta.alternates]] [[!+ss_meta.og_title]] [[!+ss_meta.og_description]]
+[[!+ss_meta.og_image]] [[!+ss_meta.og_image_alt]] [[!+ss_meta.og_type]]
+[[!+ss_meta.twitter_site]] [[!+ss_meta.twitter_title]]
+[[!+ss_meta.twitter_description]] [[!+ss_meta.twitter_image]]
+[[!+ss_meta.twitter_image_alt]] [[!+ss_meta.twitter_card]]
+[[++schemaLB:is=`1`:then=`
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "[[++business_name]]",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[[++business_street]]",
+      "addressLocality": "[[++business_city]]",
+      "postalCode": "[[++business_postal_code]]",
+      "addressCountry": "[[++business_country]]"
+    },
+    "telephone": "[[++business_phone]]",
+    "openingHours": "[[++business_opening_hours]]",
+    "priceRange": "[[++business_price_range]]",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "[[++business_latitude]]",
+      "longitude": "[[++business_longitude]]"
+    },
+    "url": "[[++business_url]]",
+    "image": "[[++site_url]][[++business_logo]]",
+    "description": "[[++business_description]]",
+    "sameAs": ["[[++business_facebook]]", "[[++business_instagram]]"]
+  }
+</script>
+`]]

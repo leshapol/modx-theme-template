@@ -1,20 +1,22 @@
+/* prettier-ignore */
 :root {
-  --color-primary: [[++color_primary]];
-  --color-secondary: [[++color_secondary]];
-  --color-accent: [[++color_accent]];
-  --color-light: [[++color_light]];
-  --color-dark: [[++color_dark]];
-  --color-gray: [[++color_gray]];
-  --color-bg: [[++color_bg]];
-  --color-text: [[++color_text]];
+[[++pagecolor1:ifnotempty=`  --color-primary: #[[++pagecolor1]];`]]
+[[++pagecolor2:ifnotempty=`  --color-secondary: #[[++pagecolor2]];`]]
+[[++pagecolor3:ifnotempty=`  --color-accent: #[[++pagecolor3]];`]]
+[[++color_light:ifnotempty=`  --color-light: #[[++color_light]];`]]
+[[++color_dark:ifnotempty=`  --color-dark: #[[++color_dark]];`]]
+[[++color_gray:ifnotempty=`  --color-gray: #[[++color_gray]];`]]
+[[++body-color:ifnotempty=`  --color-bg: #[[++body-color]];`]]
+[[++font-color:ifnotempty=`  --color-text: #[[++font-color]];`]]
 
-  --font-main: [[++font_main]];
+[[++font1:ifnotempty=`  --font-main: [[++font1]];`]]
+[[++font2:ifnotempty=`  --font-secondary: [[++font2]];`]]
 
-  --radius: [[++ui_radius]];
-  --section-padding: [[++section_padding]];
-  --transition-fast: [[++transition_fast]];
+[[++ui_radius:ifnotempty=`  --radius: [[++ui_radius]];`]]
+[[++section_padding:ifnotempty=`  --section-padding: [[++section_padding]];`]]
+[[++transition_fast:ifnotempty=`  --transition-fast: [[++transition_fast]];`]]
 
-  --container-width: [[++container_width]];
-  --container-narrow-width: [[++container_narrow_width]];
-  --container-padding: [[++container_padding]];
+[[++maxwidth:ifnotempty=`  --container-width: [[++maxwidth]]px;`]]
+[[++container_narrow_width:ifnotempty=`  --container-narrow-width: [[++container_narrow_width]]px;`]]
+[[++container_padding:ifnotempty=`  --container-padding: [[++container_padding]]px;`]]
 }
