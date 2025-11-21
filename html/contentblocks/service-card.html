@@ -1,0 +1,19 @@
+<div
+  class="services__item"
+  [[+anim:notempty="`data-anim"
+  ="[[+anim]]"
+  `]]
+  [[+anim_delay:notempty="`data-anim-delay"
+  ="[[+anim_delay]]"
+  `]]
+>
+  [[+image:notempty=`
+  <div class="services__image">
+    <img src="[[+image]]" alt="[[+alt:default=`Service image`]]" />
+  </div>
+  `]] [[+title:notempty=`
+  <h3 class="services__item-title">[[+title]]</h3>
+  `]] [[+text:notempty=`
+  <p class="services__text">[[+text]]</p>
+  `]]
+</div>
