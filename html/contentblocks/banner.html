@@ -1,32 +1,41 @@
-[[+type:default=`small`]]
-
 <div
   class="banner [[+type:is=`big`:then=`banner--big banners__big-card`:else=`banner--small banners__small-card`]]"
-  [[+anim:notempty=`data-anim="[[+anim]]"`]]
-  [[+anim_delay:notempty=`data-anim-delay="[[+anim_delay]]"`]]
+  [[+anim:notempty="`data-anim"
+  ="[[+anim]]"
+  `]]
+  [[+anim_delay:notempty="`data-anim-delay"
+  ="[[+anim_delay]]"
+  `]]
 >
   [[+type:is=`big`:then=`
-    <picture>
-      <img src="[[+image]]" alt="[[+alt:default=`Banner image`]]" />
-    </picture>
+  <picture>
+    <img src="[[+image]]" alt="[[+alt:default=`Banner image`]]" />
+  </picture>
 
-    <div class="banners__big-card-content">
-      [[+overtitle:notempty=`<p class="section-overtitle">[[+overtitle]]</p>`]]
-      [[+title:notempty=`<h3 class="banners__card-title">[[+title]]</h3>`]]
-      [[+text:notempty=`<p class="banners__card-text">[[+text]]</p>`]]
-      [[+btn_text:notempty=`<a href="[[+btn_link]]" class="banners__btn btn btn--outline-white">[[+btn_text]]</a>`]]
-    </div>
+  <div class="banners__big-card-content">
+    [[+title:notempty=`
+    <h3 class="banners__card-title">[[+title]]</h3>
+    `]] [[+text:notempty=`
+    <p class="banners__card-text">[[+text]]</p>
+    `]] [[+btn_text:notempty=`<a
+      href="[[+btn_link]]"
+      class="banners__btn btn btn--outline-white"
+      >[[+btn_text]]</a
+    >`]]
+  </div>
   `:else=`
-    <div class="banners__small-info">
-      [[+show_icon:notempty=`<span class="banners__small-icon"></span>`]]
-      [[+title:notempty=`<h3 class="banners__card-title">[[+title]]</h3>`]]
-      [[+text:notempty=`<p class="banners__card-text">[[+text]]</p>`]]
-    </div>
-
-    [[+image:notempty=`
-      <picture class="banners__small-image">
-        <img src="[[+image]]" alt="[[+alt:default=`Banner image`]]" />
-      </picture>
+  <div class="banners__small-info">
+    <span class="banners__small-icon"></span>
+    [[+title:notempty=`
+    <h3 class="banners__card-title">[[+title]]</h3>
+    `]] [[+text:notempty=`
+    <p class="banners__card-text">[[+text]]</p>
     `]]
-  `]]
+  </div>
+
+  [[+image:notempty=`
+  <picture class="banners__small-image">
+    <img src="[[+image]]" alt="[[+alt:default=`Banner image`]]" />
+  </picture>
+  `]] `]]
 </div>
