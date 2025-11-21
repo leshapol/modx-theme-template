@@ -1,0 +1,27 @@
+<div
+  class="reviews__card reviews__item[[+active:is=`1`:then=` active`]]"
+  [[+anim:notempty=`data-anim="[[+anim]]"`]]
+  [[+anim_delay:notempty=`data-anim-delay="[[+anim_delay]]"`]]
+>
+  <div class="reviews__quote-mark"></div>
+
+  [[+text:notempty=`
+    <p class="reviews__text">[[+text]]</p>
+  `]]
+
+  <div class="reviews__author">
+    [[+photo:notempty=`
+      <img src="[[+photo]]" alt="[[+name:default=`Review author`]]" class="reviews__photo" />
+    `]]
+
+    <div class="reviews__meta">
+      [[+name:notempty=`<p class="reviews__name">[[+name]]</p>`]]
+
+      [[+rating:notempty=`
+        <div class="reviews__stars">
+          [[+rating]]
+        </div>
+      `]]
+    </div>
+  </div>
+</div>
