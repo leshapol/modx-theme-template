@@ -1,0 +1,17 @@
+<div
+  class="projects__slide"
+  [[+anim:notempty=`data-anim="[[+anim]]"`]]
+  [[+anim_delay:notempty=`data-anim-delay="[[+anim_delay]]"`]]
+>
+  <img src="[[+image]]" alt="[[+alt:default=`Project image`]]" />
+
+  [[+caption:notempty=`
+    <div class="projects__caption">[[+caption]]</div>
+  `]]
+
+  [[+link:notempty=`
+    <a href="[[+link]]" class="projects__icon" aria-label="[[+icon_label:default=`Open project`]]"></a>
+  `:else=`
+    <button class="projects__icon" aria-label="[[+icon_label:default=`Open project`]]"></button>
+  `]]
+</div>

@@ -1,15 +1,18 @@
-<section class="projects section--border-bottom">
-  <div class="projects__container container container--narrow">
+<section class="projects [[+extraClasses]]">
+  <div class="projects__container container [[+containerClasses]]">
     <!-- LEFT CONTENT -->
     <div class="projects__content" data-anim="fade-up">
-      <p class="projects__overtitle section-overtitle">
-        Ihre Gesundheit in besten Händen
-      </p>
-
-      <h2 class="projects__title section-title" data-anim="fade-up" data-anim-delay="70">
-        Beispiele für erfolgreiche Rechtsfälle in Zürich
+      [[+overtitle:notempty=`
+      <p class="projects__overtitle section-overtitle">[[+overtitle]]</p>
+      `]] [[+title:notempty=`
+      <h2
+        class="projects__title section-title"
+        data-anim="fade-up"
+        data-anim-delay="70"
+      >
+        [[+title]]
       </h2>
-
+      `]] [[+left]]
       <a href="#" class="projects__btn btn btn--dark btn--small">
         Jetzt Beratung vereinbaren
       </a>
@@ -21,6 +24,8 @@
         <p class="projects__reviews">+10K Projects</p>
       </div>
     </div>
+
+    [[+slider]]
 
     <!-- SLIDER -->
     <div
