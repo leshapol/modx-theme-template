@@ -13,7 +13,7 @@
 [[++font2:ifnotempty=`  --font-secondary: [[++font2]];`]]
 
 [[++ui_radius:ifnotempty=`  --radius: [[++ui_radius]];`]]
-[[++section_padding:ifnotempty=`  --section-padding: [[++section_padding]];`]]
+[[++section_padding:ifnotempty=`  --section-padding: [[++section_padding]]px;`]]
 [[++transition_fast:ifnotempty=`  --transition-fast: [[++transition_fast]];`]]
 
 [[++maxwidth:ifnotempty=`  --container-width: [[++maxwidth]]px;`]]
