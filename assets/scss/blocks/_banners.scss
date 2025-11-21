@@ -4,14 +4,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
+  align-items: stretch;
 
   @media (max-width: $xl) {
     grid-template-columns: 1fr;
-    height: auto;
   }
 
   /* BIG CARD */
   &__big-card {
+    grid-row: 1 / -1;
     position: relative;
     border-radius: 32px;
     overflow: hidden;
@@ -65,27 +66,9 @@
     text-align: center;
   }
 
-  /* SMALL CARDS */
-  &__small-list {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    height: 100%;
-
-    @media (max-width: $xl) {
-      flex-direction: row;
-      height: auto;
-    }
-
-    @media (max-width: $lg) {
-      flex-direction: column;
-    }
-  }
-
   &__small-card {
     background: var(--color-secondary);
     border-radius: 32px;
-    height: 50%;
     color: var(--color-dark);
     position: relative;
     overflow: hidden;
@@ -95,14 +78,13 @@
     grid-template-columns: 1fr 300px;
     align-items: center;
 
-    @media (max-width: $xl) {
-      width: 50%;
-      height: auto;
-      grid-template-columns: 1fr 1fr;
-    }
+    grid-column: 2;
+    width: 100%;
+    gap: 12px;
 
-    @media (max-width: $lg) {
-      width: 100%;
+    @media (max-width: $xl) {
+      grid-column: 1;
+      grid-template-columns: 1fr 1fr;
     }
 
     @media (max-width: $md) {
@@ -175,6 +157,12 @@
         width: 100%;
         height: 100%;
       }
+    }
+  }
+
+  @media (max-width: $xl) {
+    &__big-card {
+      grid-row: auto;
     }
   }
 }
