@@ -97,20 +97,20 @@
 }
 
 section {
-  padding: clamp(50px, 2vw + 8px, var(--section-padding)) 0;
-  overflow: hidden;
+  padding: clamp(24px, calc(3.5vw + 8px), var(--section-padding)) 0;
 }
 
 section.section--tight {
-  padding: clamp(32px, 1.5vw + 6px, calc(var(--section-padding) * 0.75)) 0;
+  padding: clamp(20px, calc(1.2vw + 6px), calc(var(--section-padding) * 0.6)) 0;
 }
 
 section.section--wide {
-  padding: clamp(60px, 3vw + 10px, calc(var(--section-padding) * 1.25)) 0;
+  padding: clamp(48px, calc(2.2vw + 8px), calc(var(--section-padding) * 1)) 0;
 }
 
 section.section--xl {
-  padding: clamp(70px, 4vw + 12px, calc(var(--section-padding) * 1.5)) 0;
+  padding: clamp(56px, calc(2.8vw + 10px), calc(var(--section-padding) * 1.25))
+    0;
 }
 
 .section--border-top {
