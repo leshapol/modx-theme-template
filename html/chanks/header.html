@@ -3,8 +3,12 @@
     <div class="container header__container">
       <!-- Left nav -->
       <nav class="header__nav header__nav--left">
-        [[++left_menu_parent:notempty=` [[pdoMenu?
-        &parents=`[[+left_menu_parent]]` &level=`2` &tplOuter=`@INLINE
+        <!-- prettier-ignore -->
+        [[++left_menu_parent:notempty=`
+          [[pdoMenu?
+            &parents=`[[++left_menu_parent]]` 
+            &level=`2` 
+            &tplOuter=`@INLINE
         <ul>
           [[+wrapper]]
         </ul>
@@ -34,8 +38,12 @@
 
       <!-- Right nav -->
       <nav class="header__nav header__nav--right">
-        [[++right_menu_parent:notempty=` [[pdoMenu?
-        &parents=`[[++right_menu_parent]]` &level=`2` &tplOuter=`@INLINE
+        <!-- prettier-ignore -->
+        [[++right_menu_parent:notempty=`
+          [[pdoMenu?
+            &parents=`[[++right_menu_parent]]` 
+            &level=`2` 
+            &tplOuter=`@INLINE
         <ul>
           [[+wrapper]]
         </ul>
@@ -63,9 +71,13 @@
   <!-- Mobile menu -->
   <div class="header__mobile js-mobile-menu">
     <ul>
-      [[++left_menu_parent:notempty=` [[pdoMenu?
-      &parents=`[[++left_menu_parent]]` &level=`2` &tplOuter=`@INLINE
-      [[+wrapper]]` &tpl=`@INLINE
+      <!-- prettier-ignore -->
+      [[++left_menu_parent:notempty=`
+        [[pdoMenu?
+          &parents=`[[++left_menu_parent]]` 
+          &level=`2` 
+          &tplOuter=`@INLINE [[+wrapper]]` 
+          &tpl=`@INLINE
       <li><a href="[[+link]]">[[+menutitle]]</a></li>
       ` &tplParentRow=`@INLINE
       <li class="has-sub">
@@ -77,9 +89,14 @@
       <ul class="header__dropdown">
         [[+wrapper]]
       </ul>
-      ` &hereClass=`active` ]] `]] [[++right_menu_parent:notempty=` [[pdoMenu?
-      &parents=`[[++right_menu_parent]]` &level=`2` &tplOuter=`@INLINE
-      [[+wrapper]]` &tpl=`@INLINE
+      ` &hereClass=`active` ]] `]]
+      <!-- prettier-ignore -->
+      [[++right_menu_parent:notempty=` 
+        [[pdoMenu?
+          &parents=`[[++right_menu_parent]]`
+          &level=`2` 
+          &tplOuter=`@INLINE [[+wrapper]]` 
+          &tpl=`@INLINE
       <li><a href="[[+link]]">[[+menutitle]]</a></li>
       ` &tplParentRow=`@INLINE
       <li class="has-sub">
