@@ -3,7 +3,26 @@
   <!-- BIG CARD -->
   <div class="banners__big-card" data-anim="fade-right" data-anim-delay="100">
     <picture>
-      <img src="assets/img/trust-1.jpg" alt="Lokaler Experte" />
+      <source
+        type="image/webp"
+        srcset="
+          [[pThumb? &input=`assets/img/trust-1.jpg` &options=`w=700&q=85&f=webp&zc=0&far=0`]] 700w,
+          [[pThumb? &input=`assets/img/trust-1.jpg` &options=`w=1050&q=85&f=webp&zc=0&far=0`]] 1050w,
+          [[pThumb? &input=`assets/img/trust-1.jpg` &options=`w=1400&q=85&f=webp&zc=0&far=0`]] 1400w
+        "
+        sizes="(max-width: 992px) 100vw, 50vw"
+      />
+      <img
+        src="[[pThumb? &input=`assets/img/trust-1.jpg` &options=`w=700&q=85&zc=0&far=0`]]"
+        srcset="
+          [[pThumb? &input=`assets/img/trust-1.jpg` &options=`w=700&q=85&zc=0&far=0`]] 700w,
+          [[pThumb? &input=`assets/img/trust-1.jpg` &options=`w=1050&q=85&zc=0&far=0`]] 1050w,
+          [[pThumb? &input=`assets/img/trust-1.jpg` &options=`w=1400&q=85&zc=0&far=0`]] 1400w
+        "
+        sizes="(max-width: 992px) 100vw, 50vw"
+        alt="Lokaler Experte"
+        loading="lazy"
+      />
     </picture>
 
     <div class="banners__big-card-content">
@@ -27,7 +46,26 @@
     </div>
 
     <picture class="banners__small-image">
-      <img src="assets/img/trust-2.jpg" alt="Erfahrung" />
+      <source
+        type="image/webp"
+        srcset="
+          [[pThumb? &input=`assets/img/trust-2.jpg` &options=`w=480&q=85&f=webp&zc=0&far=0`]] 480w,
+          [[pThumb? &input=`assets/img/trust-2.jpg` &options=`w=720&q=85&f=webp&zc=0&far=0`]] 720w,
+          [[pThumb? &input=`assets/img/trust-2.jpg` &options=`w=960&q=85&f=webp&zc=0&far=0`]] 960w
+        "
+        sizes="(max-width: 992px) 70vw, 260px"
+      />
+      <img
+        src="[[pThumb? &input=`assets/img/trust-2.jpg` &options=`w=480&q=85&zc=0&far=0`]]"
+        srcset="
+          [[pThumb? &input=`assets/img/trust-2.jpg` &options=`w=480&q=85&zc=0&far=0`]] 480w,
+          [[pThumb? &input=`assets/img/trust-2.jpg` &options=`w=720&q=85&zc=0&far=0`]] 720w,
+          [[pThumb? &input=`assets/img/trust-2.jpg` &options=`w=960&q=85&zc=0&far=0`]] 960w
+        "
+        sizes="(max-width: 992px) 70vw, 260px"
+        alt="Erfahrung"
+        loading="lazy"
+      />
     </picture>
   </div>
 
@@ -42,7 +80,26 @@
     </div>
 
     <picture class="banners__small-image">
-      <img src="assets/img/trust-3.jpg" alt="Service" />
+      <source
+        type="image/webp"
+        srcset="
+          [[pThumb? &input=`assets/img/trust-3.jpg` &options=`w=480&q=85&f=webp&zc=0&far=0`]] 480w,
+          [[pThumb? &input=`assets/img/trust-3.jpg` &options=`w=720&q=85&f=webp&zc=0&far=0`]] 720w,
+          [[pThumb? &input=`assets/img/trust-3.jpg` &options=`w=960&q=85&f=webp&zc=0&far=0`]] 960w
+        "
+        sizes="(max-width: 992px) 70vw, 260px"
+      />
+      <img
+        src="[[pThumb? &input=`assets/img/trust-3.jpg` &options=`w=480&q=85&zc=0&far=0`]]"
+        srcset="
+          [[pThumb? &input=`assets/img/trust-3.jpg` &options=`w=480&q=85&zc=0&far=0`]] 480w,
+          [[pThumb? &input=`assets/img/trust-3.jpg` &options=`w=720&q=85&zc=0&far=0`]] 720w,
+          [[pThumb? &input=`assets/img/trust-3.jpg` &options=`w=960&q=85&zc=0&far=0`]] 960w
+        "
+        sizes="(max-width: 992px) 70vw, 260px"
+        alt="Service"
+        loading="lazy"
+      />
     </picture>
   </div>
 </div>

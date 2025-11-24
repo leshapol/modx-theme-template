@@ -28,12 +28,27 @@
 
       <!-- Logo -->
       <a href="/" class="header__logo">
-        <img
-          src="[[++template-path]]/assets/img/logo.png"
-          alt="Vertigo logo"
-          width="150"
-          height="50"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcset="
+              [[pThumb? &input=`[[++logo]]` &options=`w=150&q=85&f=webp&zc=0&far=0`]] 150w,
+              [[pThumb? &input=`[[++logo]]` &options=`w=300&q=85&f=webp&zc=0&far=0`]] 300w
+            "
+            sizes="(max-width: 992px) 120px, 150px"
+          />
+          <img
+            src="[[pThumb? &input=`[[++logo]]` &options=`w=150&q=85&zc=0&far=0`]]"
+            srcset="
+              [[pThumb? &input=`[[++logo]]` &options=`w=150&q=85&zc=0&far=0`]] 150w,
+              [[pThumb? &input=`[[++logo]]` &options=`w=300&q=85&zc=0&far=0`]] 300w
+            "
+            sizes="(max-width: 992px) 120px, 150px"
+            alt="[[++site_name]] logo"
+            width="150"
+            height="50"
+          />
+        </picture>
       </a>
 
       <!-- Right nav -->

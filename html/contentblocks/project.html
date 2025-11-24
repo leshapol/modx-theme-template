@@ -3,7 +3,28 @@
   [[+anim:notempty=`data-anim="[[+anim]]"`]]
   [[+anim_delay:notempty=`data-anim-delay="[[+anim_delay]]"`]]
 >
-  <img src="[[+image]]" alt="[[+alt:default=`Project image`]]" />
+  <picture>
+    <source
+      type="image/webp"
+      srcset="
+        [[pThumb? &input=`[[+image]]` &options=`w=700&q=85&f=webp&zc=0&far=0`]] 700w,
+        [[pThumb? &input=`[[+image]]` &options=`w=1000&q=85&f=webp&zc=0&far=0`]] 1000w,
+        [[pThumb? &input=`[[+image]]` &options=`w=1300&q=85&f=webp&zc=0&far=0`]] 1300w
+      "
+      sizes="(max-width: 768px) 80vw, 600px"
+    />
+    <img
+      src="[[pThumb? &input=`[[+image]]` &options=`w=700&q=85&zc=0&far=0`]]"
+      srcset="
+        [[pThumb? &input=`[[+image]]` &options=`w=700&q=85&zc=0&far=0`]] 700w,
+        [[pThumb? &input=`[[+image]]` &options=`w=1000&q=85&zc=0&far=0`]] 1000w,
+        [[pThumb? &input=`[[+image]]` &options=`w=1300&q=85&zc=0&far=0`]] 1300w
+      "
+      sizes="(max-width: 768px) 80vw, 600px"
+      alt="[[+alt:default=`Project image`]]"
+      loading="lazy"
+    />
+  </picture>
 
   [[+caption:notempty=`
     <div class="projects__caption">[[+caption]]</div>

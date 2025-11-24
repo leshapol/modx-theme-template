@@ -4,9 +4,30 @@
   [[+anim:notempty=`data-anim="[[+anim]]"`]]
   [[+anim_delay:notempty=`data-anim-delay="[[+anim_delay]]"`]]
 >
-  [[+image:notempty=`
+[[+image:notempty=`
   <div class="services__image">
-    <img src="[[+image]]" alt="[[+alt:default=`Service image`]]" />
+    <picture>
+      <source
+        type="image/webp"
+        srcset="
+          [[pThumb? &input=`[[+image]]` &options=`w=420&q=85&f=webp&zc=0&far=0`]] 420w,
+          [[pThumb? &input=`[[+image]]` &options=`w=640&q=85&f=webp&zc=0&far=0`]] 640w,
+          [[pThumb? &input=`[[+image]]` &options=`w=840&q=85&f=webp&zc=0&far=0`]] 840w
+        "
+        sizes="(max-width: 768px) 60vw, 280px"
+      />
+      <img
+        src="[[pThumb? &input=`[[+image]]` &options=`w=420&q=85&zc=0&far=0`]]"
+        srcset="
+          [[pThumb? &input=`[[+image]]` &options=`w=420&q=85&zc=0&far=0`]] 420w,
+          [[pThumb? &input=`[[+image]]` &options=`w=640&q=85&zc=0&far=0`]] 640w,
+          [[pThumb? &input=`[[+image]]` &options=`w=840&q=85&zc=0&far=0`]] 840w
+        "
+        sizes="(max-width: 768px) 60vw, 280px"
+        alt="[[+alt:default=`[[+title]]`]]"
+        loading="lazy"
+      />
+    </picture>
   </div>
   `]] [[+title:notempty=`
   <h3 class="services__item-title">[[+title]]</h3>

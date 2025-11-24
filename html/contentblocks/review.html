@@ -12,7 +12,29 @@
 
   <div class="reviews__author">
     [[+photo:notempty=`
-      <img src="[[+photo]]" alt="[[+name:default=`Review author`]]" class="reviews__photo" />
+      <picture>
+        <source
+          type="image/webp"
+          srcset="
+            [[pThumb? &input=`[[+photo]]` &options=`w=120&q=85&f=webp&zc=0&far=0`]] 120w,
+            [[pThumb? &input=`[[+photo]]` &options=`w=180&q=85&f=webp&zc=0&far=0`]] 180w,
+            [[pThumb? &input=`[[+photo]]` &options=`w=240&q=85&f=webp&zc=0&far=0`]] 240w
+          "
+          sizes="64px"
+        />
+        <img
+          src="[[pThumb? &input=`[[+photo]]` &options=`w=120&q=85&zc=0&far=0`]]"
+          srcset="
+            [[pThumb? &input=`[[+photo]]` &options=`w=120&q=85&zc=0&far=0`]] 120w,
+            [[pThumb? &input=`[[+photo]]` &options=`w=180&q=85&zc=0&far=0`]] 180w,
+            [[pThumb? &input=`[[+photo]]` &options=`w=240&q=85&zc=0&far=0`]] 240w
+          "
+          sizes="64px"
+          alt="[[+name:default=`Review author`]]"
+          class="reviews__photo"
+          loading="lazy"
+        />
+      </picture>
     `]]
 
     <div class="reviews__meta">

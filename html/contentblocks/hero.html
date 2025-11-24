@@ -19,7 +19,29 @@
       data-anim="fade-left"
       data-anim-delay="150"
     >
-      <img src="[[+image]]" alt="Hero image" class="hero__image" />
+      <picture>
+        <source
+          type="image/webp"
+          srcset="
+            [[pThumb? &input=`[[+image]]` &options=`w=900&q=85&f=webp&zc=0&far=0`]] 900w,
+            [[pThumb? &input=`[[+image]]` &options=`w=1300&q=85&f=webp&zc=0&far=0`]] 1300w,
+            [[pThumb? &input=`[[+image]]` &options=`w=1700&q=85&f=webp&zc=0&far=0`]] 1700w
+          "
+          sizes="(max-width: 992px) 100vw, 50vw"
+        />
+        <img
+          src="[[pThumb? &input=`[[+image]]` &options=`w=900&q=85&zc=0&far=0`]]"
+          srcset="
+            [[pThumb? &input=`[[+image]]` &options=`w=900&q=85&zc=0&far=0`]] 900w,
+            [[pThumb? &input=`[[+image]]` &options=`w=1300&q=85&zc=0&far=0`]] 1300w,
+            [[pThumb? &input=`[[+image]]` &options=`w=1700&q=85&zc=0&far=0`]] 1700w
+          "
+          sizes="(max-width: 992px) 100vw, 50vw"
+          alt="[[+alt:default=`Hero image`]]"
+          class="hero__image"
+          fetchpriority="high"
+        />
+      </picture>
     </div>
   </div>
 </section>

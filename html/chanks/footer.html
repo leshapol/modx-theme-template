@@ -5,7 +5,26 @@
 
       <div class="footer__brand">
         <a href="/" class="footer__logo" aria-label="Vertigo">
-          <img src="[[++template-path]]/assets/img/logo.png" alt="Vertigo" />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                [[pThumb? &input=`[[++logo]]` &options=`w=200&q=85&f=webp&zc=0&far=0`]] 200w,
+                [[pThumb? &input=`[[++logo]]` &options=`w=400&q=85&f=webp&zc=0&far=0`]] 400w
+              "
+              sizes="200px"
+            />
+            <img
+              src="[[pThumb? &input=`[[++logo]]` &options=`w=200&q=85&zc=0&far=0`]]"
+              srcset="
+                [[pThumb? &input=`[[++logo]]` &options=`w=200&q=85&zc=0&far=0`]] 200w,
+                [[pThumb? &input=`[[++logo]]` &options=`w=400&q=85&zc=0&far=0`]] 400w
+              "
+              sizes="200px"
+              alt="Vertigo"
+              loading="lazy"
+            />
+          </picture>
         </a>
       </div>
 

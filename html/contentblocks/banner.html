@@ -6,7 +6,26 @@
 >
   [[+type:is=`big`:then=`
   <picture>
-    <img src="[[+image]]" alt="[[+alt:default=`Banner image`]]" />
+    <source
+      type="image/webp"
+      srcset="
+        [[pThumb? &input=`[[+image]]` &options=`w=700&q=85&f=webp&zc=0&far=0`]] 700w,
+        [[pThumb? &input=`[[+image]]` &options=`w=1050&q=85&f=webp&zc=0&far=0`]] 1050w,
+        [[pThumb? &input=`[[+image]]` &options=`w=1400&q=85&f=webp&zc=0&far=0`]] 1400w
+      "
+      sizes="(max-width: 992px) 100vw, 50vw"
+    />
+    <img
+      src="[[pThumb? &input=`[[+image]]` &options=`w=700&q=85&zc=0&far=0`]]"
+      srcset="
+        [[pThumb? &input=`[[+image]]` &options=`w=700&q=85&zc=0&far=0`]] 700w,
+        [[pThumb? &input=`[[+image]]` &options=`w=1050&q=85&zc=0&far=0`]] 1050w,
+        [[pThumb? &input=`[[+image]]` &options=`w=1400&q=85&zc=0&far=0`]] 1400w
+      "
+      sizes="(max-width: 992px) 100vw, 50vw"
+      alt="[[+alt:default=`[[+title]]`]]"
+      loading="lazy"
+    />
   </picture>
 
   <div class="banners__big-card-content">
@@ -32,7 +51,26 @@
 
   [[+image:notempty=`
   <picture class="banners__small-image">
-    <img src="[[+image]]" alt="[[+alt:default=`Banner image`]]" />
+    <source
+      type="image/webp"
+      srcset="
+        [[pThumb? &input=`[[+image]]` &options=`w=480&q=85&f=webp&zc=0&far=0`]] 480w,
+        [[pThumb? &input=`[[+image]]` &options=`w=720&q=85&f=webp&zc=0&far=0`]] 720w,
+        [[pThumb? &input=`[[+image]]` &options=`w=960&q=85&f=webp&zc=0&far=0`]] 960w
+      "
+      sizes="(max-width: 992px) 70vw, 240px"
+    />
+    <img
+      src="[[pThumb? &input=`[[+image]]` &options=`w=480&q=85&zc=0&far=0`]]"
+      srcset="
+        [[pThumb? &input=`[[+image]]` &options=`w=480&q=85&zc=0&far=0`]] 480w,
+        [[pThumb? &input=`[[+image]]` &options=`w=720&q=85&zc=0&far=0`]] 720w,
+        [[pThumb? &input=`[[+image]]` &options=`w=960&q=85&zc=0&far=0`]] 960w
+      "
+      sizes="(max-width: 992px) 70vw, 240px"
+      alt="[[+alt:default=`[[+title]]`]]"
+      loading="lazy"
+    />
   </picture>
   `]] `]]
 </div>
