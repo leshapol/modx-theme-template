@@ -1,15 +1,30 @@
-/* ---------------------------
-   Update CSS variable for header height
----------------------------- */
+const HEADER_SHRINK_DELTA = 30;
 let baseHeaderHeight = null;
+let smallHeaderHeight = null;
+let mobileBreakpoint = null;
 
-function setHeaderHeight(isSmall) {
-  const header = document.querySelector(".header");
-  if (!header) return;
+function getCssNumberVar(name, fallback) {
+  const raw = getComputedStyle(document.documentElement).getPropertyValue(name);
+  const parsed = parseInt(raw, 10);
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
 
-  const baseHeight =
-    baseHeaderHeight || Math.round(header.getBoundingClientRect().height);
-  const targetHeight = isSmall ? Math.max(baseHeight - 50, 0) : baseHeight;
+function getMobileBreakpoint() {
+  if (mobileBreakpoint === null) {
+    mobileBreakpoint = getCssNumberVar("--header-mobile-breakpoint", 992);
+  }
+  return mobileBreakpoint;
+}
+
+function isMobileViewport() {
+  return window.innerWidth <= getMobileBreakpoint();
+}
+
+function applyHeaderHeight({ isSmall, isMobile }) {
+  if (baseHeaderHeight === null || smallHeaderHeight === null) return;
+
+  const useSmall = isSmall || isMobile;
+  const targetHeight = useSmall ? smallHeaderHeight : baseHeaderHeight;
 
   document.documentElement.style.setProperty(
     "--header-height",
@@ -17,21 +32,30 @@ function setHeaderHeight(isSmall) {
   );
 }
 
-function updateBaseHeaderHeight() {
+function updateMeasuredHeights() {
   const header = document.querySelector(".header");
   if (!header) return;
 
   const wasSmall = header.classList.contains("is-small");
   if (wasSmall) header.classList.remove("is-small");
 
-  // measure in default state
+  // measure base height in default state
   baseHeaderHeight = Math.round(header.getBoundingClientRect().height);
+
+  const cssSmall = getCssNumberVar(
+    "--header-height-small",
+    baseHeaderHeight - HEADER_SHRINK_DELTA
+  );
+  smallHeaderHeight = Math.max(cssSmall, 0);
 
   // restore previous state
   if (wasSmall) header.classList.add("is-small");
 
   // sync CSS variable to current visual state
-  setHeaderHeight(header.classList.contains("is-small"));
+  applyHeaderHeight({
+    isSmall: header.classList.contains("is-small"),
+    isMobile: isMobileViewport(),
+  });
 }
 
 /* ---------------------------
@@ -43,11 +67,15 @@ function handleHeaderShrink() {
 
   const shrinkOffset = 80;
 
-  window.addEventListener("scroll", () => {
+  const updateState = () => {
     const isSmall = window.scrollY > shrinkOffset;
+    const isMobile = isMobileViewport();
     header.classList.toggle("is-small", isSmall);
-    setHeaderHeight(isSmall);
-  });
+    applyHeaderHeight({ isSmall, isMobile });
+  };
+
+  window.addEventListener("scroll", updateState);
+  updateState();
 }
 
 /* ---------------------------
@@ -88,14 +116,15 @@ function initBurgerMenu() {
    MAIN INIT FUNCTION
 ---------------------------- */
 function initHeader() {
-  updateBaseHeaderHeight();
+  updateMeasuredHeights();
   initBurgerMenu();
   initMobileDropdowns();
   handleHeaderShrink();
 
   // recalc height on resize
   window.addEventListener("resize", () => {
-    updateBaseHeaderHeight();
+    mobileBreakpoint = null; // force re-read of CSS var
+    updateMeasuredHeights();
   });
 }
 
