@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none; // prevent sideways panning on touch emulation
+}
+
 body {
   font-family: var(--font-main);
   background: var(--color-bg);
