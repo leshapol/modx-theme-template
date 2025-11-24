@@ -39,7 +39,9 @@ function initScrollToBlock() {
       });
 
       if (history.replaceState) {
-        history.replaceState(null, "", target);
+        const url =
+          window.location.pathname + window.location.search + target;
+        history.replaceState(null, "", url);
       } else {
         window.location.hash = target;
       }
