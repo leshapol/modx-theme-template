@@ -49,4 +49,15 @@ foreach ($families as $family) {
 
 $href = 'https://fonts.googleapis.com/css2?' . ltrim($query, '&') . '&display=swap';
 
-return '<link rel="stylesheet" href="' . $href . '" />';
+$hrefEsc = htmlspecialchars($href, ENT_QUOTES, 'UTF-8');
+
+// Allow storing the href in a placeholder if needed elsewhere
+if (!empty($toPlaceholder)) {
+    $modx->setPlaceholder($toPlaceholder, $href);
+}
+
+$preload = '<link rel="preload" as="style" href="' . $hrefEsc . '" />';
+$stylesheet = '<link rel="stylesheet" href="' . $hrefEsc . '" media="print" onload="this.media=\'all\'" />';
+$noscript = '<noscript><link rel="stylesheet" href="' . $hrefEsc . '" /></noscript>';
+
+return $preload . "\n" . $stylesheet . "\n" . $noscript;

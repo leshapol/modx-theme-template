@@ -1,17 +1,14 @@
+<!-- prettier-ignore -->
 <section class="hero" [[+anchor:notempty=`id="[[+anchor]]"`]]>
   <div class="hero__container container">
     <div class="hero__content">
-      <p class="hero__subtitle" data-anim="fade-up">[[+overtitle]]</p>
+      [[+overtitle:notempty=`<p class="hero__subtitle" data-anim="fade-up">[[+overtitle]]</p>`]]
 
-      <h1 class="hero__title" data-anim="fade-up" data-anim-delay="100">
-        [[+title]]
-      </h1>
+      [[+title:notempty=`<h1 class="hero__title" data-anim="fade-up" data-anim-delay="100">[[+title]]</h1>`]]
 
-      <p class="hero__text" data-anim="fade-up" data-anim-delay="200">
-        [[+text]]
-      </p>
+      [[+text:notempty=`<p class="hero__text" data-anim="fade-up" data-anim-delay="200">[[+text]]</p>`]]
 
-      <div data-anim="fade-up" data-anim-delay="300">[[+content]]</div>
+      [[+content:notempty=`<div data-anim="fade-up" data-anim-delay="300">[[+content]]</div>`]]
     </div>
 
     <div
@@ -40,6 +37,8 @@
           alt="[[+alt:default=`Hero image`]]"
           class="hero__image"
           fetchpriority="high"
+          [[+img_width:notempty=`width="[[+img_width]]"`]]
+          [[+img_height:notempty=`height="[[+img_height]]"`]]
         />
       </picture>
     </div>
