@@ -11,13 +11,20 @@ function initProjectsSlider() {
   let deltaX = 0;
   let lastOffset = 0;
   const EDGE = 40; // same visual spacing as in mockup
+  let layout = null;
 
-  function updateBounds() {
+  function measureLayout() {
     const slideWidth = slides[0].offsetWidth;
     const gap = parseFloat(getComputedStyle(track).gap) || 24;
-
     const containerWidth = container.offsetWidth;
     const trackWidth = slides.length * slideWidth + (slides.length - 1) * gap;
+
+    layout = { slideWidth, gap, containerWidth, trackWidth };
+  }
+
+  function updateBounds() {
+    if (!layout) measureLayout();
+    const { containerWidth, trackWidth } = layout;
 
     return {
       min: containerWidth - trackWidth - EDGE,
@@ -91,13 +98,19 @@ function initProjectsSlider() {
   track.addEventListener("dragstart", (e) => e.preventDefault());
 
   // On resize: soft recalculation
+  let resizeRaf = null;
   window.addEventListener("resize", () => {
-    const { min, max } = updateBounds();
-    lastOffset = Math.min(max, Math.max(min, lastOffset));
-    applyOffset(lastOffset);
+    if (resizeRaf) cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(() => {
+      measureLayout();
+      const { min, max } = updateBounds();
+      lastOffset = Math.min(max, Math.max(min, lastOffset));
+      applyOffset(lastOffset);
+    });
   });
 
   // INIT POSITION
+  measureLayout();
   applyOffset(lastOffset);
 }
 

@@ -95,19 +95,41 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 [[!LoadFonts? &font1=`[[++font1]]` &font2=`[[++font2]]` ]]
 
-<!-- Styles -->
-<!--<link rel="stylesheet" href="[[++template-path]]/assets/build/style.css" />-->
+<!-- Preload main JS to shorten critical chain -->
 <link
-  rel="stylesheet"
-  type="text/css"
+  rel="preload"
+  as="script"
+  href="[[++template-path]]/assets/build/main.js"
+/>
+
+<!-- Styles (preload to avoid render blocking) -->
+<link
+  rel="preload"
+  as="style"
   href="[[!lastModified? &path=`[[++base_path]][[++template-path]]/assets/build/` &dis=`[[++template-path]]/assets/build/` &file=`style.css`]]"
+  onload="this.onload=null;this.rel='stylesheet'"
 />
-<!-- <link rel="stylesheet" href="assets/components/csssweet/custom/custom_css.min.css" /> -->
+<noscript>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="[[!lastModified? &path=`[[++base_path]][[++template-path]]/assets/build/` &dis=`[[++template-path]]/assets/build/` &file=`style.css`]]"
+  />
+</noscript>
+
 <link
-  rel="stylesheet"
-  type="text/css"
+  rel="preload"
+  as="style"
   href="[[!lastModified? &path=`[[++base_path]]assets/components/csssweet/custom/` &dis=`assets/components/csssweet/custom/` &file=`custom_css.min.css`]]"
+  onload="this.onload=null;this.rel='stylesheet'"
 />
+<noscript>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="[[!lastModified? &path=`[[++base_path]]assets/components/csssweet/custom/` &dis=`assets/components/csssweet/custom/` &file=`custom_css.min.css`]]"
+  />
+</noscript>
 
 <!-- komm-->
 

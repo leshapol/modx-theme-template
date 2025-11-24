@@ -24,14 +24,31 @@ function initReviewsSlider() {
   let lastOffset = 0; // last applied translateX from update()
 
   // =====================================================
+  // MEASUREMENTS
+  // =====================================================
+  let layout = null;
+
+  function measureLayout() {
+    const cardWidth = cards[0].offsetWidth;
+    const gap = parseFloat(getComputedStyle(track).gap) || 40;
+    const containerWidth = container.offsetWidth;
+    const trackWidth = cards.length * cardWidth + (cards.length - 1) * gap;
+
+    layout = {
+      cardWidth,
+      gap,
+      containerWidth,
+      trackWidth,
+    };
+  }
+
+  // =====================================================
   // POSITIONING
   // =====================================================
   function update() {
-    const cardWidth = cards[0].offsetWidth;
-    const gap = parseFloat(getComputedStyle(track).gap) || 40;
+    if (!layout) measureLayout();
 
-    const containerWidth = container.offsetWidth;
-    const trackWidth = cards.length * cardWidth + (cards.length - 1) * gap;
+    const { cardWidth, gap, containerWidth, trackWidth } = layout;
 
     const containerCenter = containerWidth / 2;
     const cardCenter = index * (cardWidth + gap) + cardWidth / 2;
@@ -120,10 +137,11 @@ function initReviewsSlider() {
     const dragDuration = Date.now() - dragStartTime;
 
     // calculate bounds
-    const cardWidth = cards[0].offsetWidth;
-    const gap = parseFloat(getComputedStyle(track).gap) || 40;
-    const containerWidth = container.offsetWidth;
-    const trackWidth = cards.length * cardWidth + (cards.length - 1) * gap;
+    const { cardWidth, gap, containerWidth, trackWidth } = layout || {};
+    if (!cardWidth) {
+      measureLayout();
+      return update();
+    }
 
     const maxOffset = EDGE_LIMIT;
     const minOffset = containerWidth - trackWidth - EDGE_LIMIT;
@@ -197,13 +215,19 @@ function initReviewsSlider() {
   });
 
   // =====================================================
-  // RESIZE
+  // RESIZE (debounced + single layout read)
   // =====================================================
+  let resizeRaf = null;
   window.addEventListener("resize", () => {
-    setTimeout(update, 50);
+    if (resizeRaf) cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(() => {
+      measureLayout();
+      update();
+    });
   });
 
   // INIT
+  measureLayout();
   update();
   startAutoplay();
 }

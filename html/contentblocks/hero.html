@@ -23,20 +23,20 @@
         <source
           type="image/webp"
           srcset="
-            [[pThumb? &input=`[[+image]]` &options=`w=900&q=85&f=webp&zc=0&far=0`]] 900w,
-            [[pThumb? &input=`[[+image]]` &options=`w=1300&q=85&f=webp&zc=0&far=0`]] 1300w,
-            [[pThumb? &input=`[[+image]]` &options=`w=1700&q=85&f=webp&zc=0&far=0`]] 1700w
+            [[pThumb? &input=`[[+image]]` &options=`w=760&q=80&f=webp&zc=0&far=0`]] 760w,
+            [[pThumb? &input=`[[+image]]` &options=`w=1140&q=80&f=webp&zc=0&far=0`]] 1140w,
+            [[pThumb? &input=`[[+image]]` &options=`w=1520&q=80&f=webp&zc=0&far=0`]] 1520w
           "
-          sizes="(max-width: 992px) 100vw, 50vw"
+          sizes="(max-width: 992px) 100vw, (max-width: 1400px) 60vw, 50vw"
         />
         <img
-          src="[[pThumb? &input=`[[+image]]` &options=`w=900&q=85&zc=0&far=0`]]"
+          src="[[pThumb? &input=`[[+image]]` &options=`w=760&q=80&zc=0&far=0`]]"
           srcset="
-            [[pThumb? &input=`[[+image]]` &options=`w=900&q=85&zc=0&far=0`]] 900w,
-            [[pThumb? &input=`[[+image]]` &options=`w=1300&q=85&zc=0&far=0`]] 1300w,
-            [[pThumb? &input=`[[+image]]` &options=`w=1700&q=85&zc=0&far=0`]] 1700w
+            [[pThumb? &input=`[[+image]]` &options=`w=760&q=80&zc=0&far=0`]] 760w,
+            [[pThumb? &input=`[[+image]]` &options=`w=1140&q=80&zc=0&far=0`]] 1140w,
+            [[pThumb? &input=`[[+image]]` &options=`w=1520&q=80&zc=0&far=0`]] 1520w
           "
-          sizes="(max-width: 992px) 100vw, 50vw"
+          sizes="(max-width: 992px) 100vw, (max-width: 1400px) 60vw, 50vw"
           alt="[[+alt:default=`Hero image`]]"
           class="hero__image"
           fetchpriority="high"
