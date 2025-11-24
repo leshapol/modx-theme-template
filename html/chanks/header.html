@@ -3,21 +3,17 @@
     <div class="container header__container">
       <!-- Left nav -->
       <nav class="header__nav header__nav--left">
-        <ul>
-          <li><a href="#">Item 1</a></li>
-          <li><a href="#">Item 2</a></li>
-
-          <li class="has-sub">
-            <a href="#">Item 3</a>
-            <span class="header__arrow"></span>
-
-            <ul class="header__dropdown">
-              <li><a href="#">Subitem 3.1</a></li>
-              <li><a href="#">Subitem 3.2</a></li>
-              <li><a href="#">Subitem 3.3</a></li>
-            </ul>
-          </li>
-        </ul>
+        [[+leftMenuParent:notempty=`
+        [[pdoMenu?
+          &parents=`[[+leftMenuParent]]`
+          &level=`2`
+          &tplOuter=`@INLINE <ul>[[+wrapper]]</ul>`
+          &tpl=`@INLINE <li><a href="[[+link]]">[[+menutitle]]</a></li>`
+          &tplParentRow=`@INLINE <li class="has-sub"><a href="[[+link]]">[[+menutitle]]</a><span class="header__arrow"></span>[[+wrapper]]</li>`
+          &tplInner=`@INLINE <ul class="header__dropdown">[[+wrapper]]</ul>`
+          &hereClass=`active`
+        ]]
+        `]]
       </nav>
 
       <!-- Logo -->
@@ -32,21 +28,17 @@
 
       <!-- Right nav -->
       <nav class="header__nav header__nav--right">
-        <ul>
-          <li><a href="#">Item 4</a></li>
-          <li><a href="#">Item 5</a></li>
-
-          <li class="has-sub">
-            <a href="#">Item 6</a>
-            <span class="header__arrow"></span>
-
-            <ul class="header__dropdown">
-              <li><a href="#">Subitem 6.1</a></li>
-              <li><a href="#">Subitem 6.2</a></li>
-              <li><a href="#">Subitem 6.3</a></li>
-            </ul>
-          </li>
-        </ul>
+        [[+rightMenuParent:notempty=`
+        [[pdoMenu?
+          &parents=`[[+rightMenuParent]]`
+          &level=`2`
+          &tplOuter=`@INLINE <ul>[[+wrapper]]</ul>`
+          &tpl=`@INLINE <li><a href="[[+link]]">[[+menutitle]]</a></li>`
+          &tplParentRow=`@INLINE <li class="has-sub"><a href="[[+link]]">[[+menutitle]]</a><span class="header__arrow"></span>[[+wrapper]]</li>`
+          &tplInner=`@INLINE <ul class="header__dropdown">[[+wrapper]]</ul>`
+          &hereClass=`active`
+        ]]
+        `]]
       </nav>
 
       <!-- Burger -->
@@ -59,35 +51,29 @@
   <!-- Mobile menu -->
   <div class="header__mobile js-mobile-menu">
     <ul>
-      <li><a href="#">Item 1</a></li>
-      <li><a href="#">Item 2</a></li>
+      [[+leftMenuParent:notempty=`
+      [[pdoMenu?
+        &parents=`[[+leftMenuParent]]`
+        &level=`2`
+        &tplOuter=`@INLINE [[+wrapper]]`
+        &tpl=`@INLINE <li><a href="[[+link]]">[[+menutitle]]</a></li>`
+        &tplParentRow=`@INLINE <li class="has-sub"><button class="header__mobile-toggle">[[+menutitle]] <span class="header__arrow"></span></button>[[+wrapper]]</li>`
+        &tplInner=`@INLINE <ul class="header__dropdown">[[+wrapper]]</ul>`
+        &hereClass=`active`
+      ]]
+      `]]
 
-      <li class="has-sub">
-        <button class="header__mobile-toggle">
-          Item 3 <span class="header__arrow"></span>
-        </button>
-
-        <ul class="header__dropdown">
-          <li><a href="#">Subitem 3.1</a></li>
-          <li><a href="#">Subitem 3.2</a></li>
-          <li><a href="#">Subitem 3.3</a></li>
-        </ul>
-      </li>
-
-      <li><a href="#">Item 4</a></li>
-      <li><a href="#">Item 5</a></li>
-
-      <li class="has-sub">
-        <button class="header__mobile-toggle">
-          Item 6 <span class="header__arrow"></span>
-        </button>
-
-        <ul class="header__dropdown">
-          <li><a href="#">Subitem 6.1</a></li>
-          <li><a href="#">Subitem 6.2</a></li>
-          <li><a href="#">Subitem 6.3</a></li>
-        </ul>
-      </li>
+      [[+rightMenuParent:notempty=`
+      [[pdoMenu?
+        &parents=`[[+rightMenuParent]]`
+        &level=`2`
+        &tplOuter=`@INLINE [[+wrapper]]`
+        &tpl=`@INLINE <li><a href="[[+link]]">[[+menutitle]]</a></li>`
+        &tplParentRow=`@INLINE <li class="has-sub"><button class="header__mobile-toggle">[[+menutitle]] <span class="header__arrow"></span></button>[[+wrapper]]</li>`
+        &tplInner=`@INLINE <ul class="header__dropdown">[[+wrapper]]</ul>`
+        &hereClass=`active`
+      ]]
+      `]]
     </ul>
   </div>
 </header>

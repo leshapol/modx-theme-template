@@ -38,47 +38,23 @@
       </li>
     </ul>
 
+    [[+footerMenuParent:notempty=` [[pdoMenu? &parents=`[[+footerMenuParent]]`
+    &level=`2` &includeParents=`0` &tplOuter=`@INLINE
     <div class="footer__links" data-anim="fade-up" data-anim-delay="160">
-      <div class="footer__column">
-        <h4 class="footer__heading">Über Uns</h4>
-        <ul>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__column">
-        <h4 class="footer__heading">Mitgliedschaft</h4>
-        <ul>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__column">
-        <h4 class="footer__heading">Lokal</h4>
-        <ul>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__column">
-        <h4 class="footer__heading">Kontakt</h4>
-        <ul>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-          <li><a href="#">Lorem Ipsum Dolor</a></li>
-        </ul>
-      </div>
+      [[+wrapper]]
     </div>
+    ` &tplParentRow=`@INLINE
+    <div class="footer__column">
+      <h4 class="footer__heading">[[+menutitle:default=`[[+pagetitle]]`]]</h4>
+      [[+wrapper]]
+    </div>
+    ` &tplInner=`@INLINE
+    <ul>
+      [[+wrapper]]
+    </ul>
+    ` &tpl=`@INLINE
+    <li><a href="[[+link]]">[[+menutitle]]</a></li>
+    ` &hereClass=`active` ]] `]]
 
     <div class="footer__bottom">
       <p class="footer__copy">&copy; 2025 All rights reserved.</p>
