@@ -3,17 +3,23 @@
     <div class="container header__container">
       <!-- Left nav -->
       <nav class="header__nav header__nav--left">
-        [[+leftMenuParent:notempty=`
-        [[pdoMenu?
-          &parents=`[[+leftMenuParent]]`
-          &level=`2`
-          &tplOuter=`@INLINE <ul>[[+wrapper]]</ul>`
-          &tpl=`@INLINE <li><a href="[[+link]]">[[+menutitle]]</a></li>`
-          &tplParentRow=`@INLINE <li class="has-sub"><a href="[[+link]]">[[+menutitle]]</a><span class="header__arrow"></span>[[+wrapper]]</li>`
-          &tplInner=`@INLINE <ul class="header__dropdown">[[+wrapper]]</ul>`
-          &hereClass=`active`
-        ]]
-        `]]
+        [[++left_menu_parent:notempty=` [[pdoMenu?
+        &parents=`[[+left_menu_parent]]` &level=`2` &tplOuter=`@INLINE
+        <ul>
+          [[+wrapper]]
+        </ul>
+        ` &tpl=`@INLINE
+        <li><a href="[[+link]]">[[+menutitle]]</a></li>
+        ` &tplParentRow=`@INLINE
+        <li class="has-sub">
+          <a href="[[+link]]">[[+menutitle]]</a
+          ><span class="header__arrow"></span>[[+wrapper]]
+        </li>
+        ` &tplInner=`@INLINE
+        <ul class="header__dropdown">
+          [[+wrapper]]
+        </ul>
+        ` &hereClass=`active` ]] `]]
       </nav>
 
       <!-- Logo -->
@@ -28,17 +34,23 @@
 
       <!-- Right nav -->
       <nav class="header__nav header__nav--right">
-        [[+rightMenuParent:notempty=`
-        [[pdoMenu?
-          &parents=`[[+rightMenuParent]]`
-          &level=`2`
-          &tplOuter=`@INLINE <ul>[[+wrapper]]</ul>`
-          &tpl=`@INLINE <li><a href="[[+link]]">[[+menutitle]]</a></li>`
-          &tplParentRow=`@INLINE <li class="has-sub"><a href="[[+link]]">[[+menutitle]]</a><span class="header__arrow"></span>[[+wrapper]]</li>`
-          &tplInner=`@INLINE <ul class="header__dropdown">[[+wrapper]]</ul>`
-          &hereClass=`active`
-        ]]
-        `]]
+        [[++right_menu_parent:notempty=` [[pdoMenu?
+        &parents=`[[++right_menu_parent]]` &level=`2` &tplOuter=`@INLINE
+        <ul>
+          [[+wrapper]]
+        </ul>
+        ` &tpl=`@INLINE
+        <li><a href="[[+link]]">[[+menutitle]]</a></li>
+        ` &tplParentRow=`@INLINE
+        <li class="has-sub">
+          <a href="[[+link]]">[[+menutitle]]</a
+          ><span class="header__arrow"></span>[[+wrapper]]
+        </li>
+        ` &tplInner=`@INLINE
+        <ul class="header__dropdown">
+          [[+wrapper]]
+        </ul>
+        ` &hereClass=`active` ]] `]]
       </nav>
 
       <!-- Burger -->
@@ -51,29 +63,35 @@
   <!-- Mobile menu -->
   <div class="header__mobile js-mobile-menu">
     <ul>
-      [[+leftMenuParent:notempty=`
-      [[pdoMenu?
-        &parents=`[[+leftMenuParent]]`
-        &level=`2`
-        &tplOuter=`@INLINE [[+wrapper]]`
-        &tpl=`@INLINE <li><a href="[[+link]]">[[+menutitle]]</a></li>`
-        &tplParentRow=`@INLINE <li class="has-sub"><button class="header__mobile-toggle">[[+menutitle]] <span class="header__arrow"></span></button>[[+wrapper]]</li>`
-        &tplInner=`@INLINE <ul class="header__dropdown">[[+wrapper]]</ul>`
-        &hereClass=`active`
-      ]]
-      `]]
-
-      [[+rightMenuParent:notempty=`
-      [[pdoMenu?
-        &parents=`[[+rightMenuParent]]`
-        &level=`2`
-        &tplOuter=`@INLINE [[+wrapper]]`
-        &tpl=`@INLINE <li><a href="[[+link]]">[[+menutitle]]</a></li>`
-        &tplParentRow=`@INLINE <li class="has-sub"><button class="header__mobile-toggle">[[+menutitle]] <span class="header__arrow"></span></button>[[+wrapper]]</li>`
-        &tplInner=`@INLINE <ul class="header__dropdown">[[+wrapper]]</ul>`
-        &hereClass=`active`
-      ]]
-      `]]
+      [[++left_menu_parent:notempty=` [[pdoMenu?
+      &parents=`[[++left_menu_parent]]` &level=`2` &tplOuter=`@INLINE
+      [[+wrapper]]` &tpl=`@INLINE
+      <li><a href="[[+link]]">[[+menutitle]]</a></li>
+      ` &tplParentRow=`@INLINE
+      <li class="has-sub">
+        <button class="header__mobile-toggle">
+          [[+menutitle]] <span class="header__arrow"></span></button
+        >[[+wrapper]]
+      </li>
+      ` &tplInner=`@INLINE
+      <ul class="header__dropdown">
+        [[+wrapper]]
+      </ul>
+      ` &hereClass=`active` ]] `]] [[++right_menu_parent:notempty=` [[pdoMenu?
+      &parents=`[[++right_menu_parent]]` &level=`2` &tplOuter=`@INLINE
+      [[+wrapper]]` &tpl=`@INLINE
+      <li><a href="[[+link]]">[[+menutitle]]</a></li>
+      ` &tplParentRow=`@INLINE
+      <li class="has-sub">
+        <button class="header__mobile-toggle">
+          [[+menutitle]] <span class="header__arrow"></span></button
+        >[[+wrapper]]
+      </li>
+      ` &tplInner=`@INLINE
+      <ul class="header__dropdown">
+        [[+wrapper]]
+      </ul>
+      ` &hereClass=`active` ]] `]]
     </ul>
   </div>
 </header>
