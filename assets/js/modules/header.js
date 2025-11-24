@@ -9,7 +9,7 @@ function setHeaderHeight(isSmall) {
 
   const baseHeight =
     baseHeaderHeight || Math.round(header.getBoundingClientRect().height);
-  const targetHeight = isSmall ? Math.max(baseHeight - 30, 0) : baseHeight;
+  const targetHeight = isSmall ? Math.max(baseHeight - 50, 0) : baseHeight;
 
   document.documentElement.style.setProperty(
     "--header-height",
