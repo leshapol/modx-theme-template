@@ -1,12 +1,37 @@
 /* ---------------------------
    Update CSS variable for header height
 ---------------------------- */
-function updateHeaderHeight() {
+let baseHeaderHeight = null;
+
+function setHeaderHeight(isSmall) {
   const header = document.querySelector(".header");
   if (!header) return;
 
-  const height = header.offsetHeight;
-  document.documentElement.style.setProperty("--header-height", height + "px");
+  const baseHeight =
+    baseHeaderHeight || Math.round(header.getBoundingClientRect().height);
+  const targetHeight = isSmall ? Math.max(baseHeight - 30, 0) : baseHeight;
+
+  document.documentElement.style.setProperty(
+    "--header-height",
+    `${targetHeight}px`
+  );
+}
+
+function updateBaseHeaderHeight() {
+  const header = document.querySelector(".header");
+  if (!header) return;
+
+  const wasSmall = header.classList.contains("is-small");
+  if (wasSmall) header.classList.remove("is-small");
+
+  // measure in default state
+  baseHeaderHeight = Math.round(header.getBoundingClientRect().height);
+
+  // restore previous state
+  if (wasSmall) header.classList.add("is-small");
+
+  // sync CSS variable to current visual state
+  setHeaderHeight(header.classList.contains("is-small"));
 }
 
 /* ---------------------------
@@ -19,14 +44,9 @@ function handleHeaderShrink() {
   const shrinkOffset = 80;
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > shrinkOffset) {
-      header.classList.add("is-small");
-    } else {
-      header.classList.remove("is-small");
-    }
-
-    // recalc height for mobile menu position
-    updateHeaderHeight();
+    const isSmall = window.scrollY > shrinkOffset;
+    header.classList.toggle("is-small", isSmall);
+    setHeaderHeight(isSmall);
   });
 }
 
@@ -68,13 +88,15 @@ function initBurgerMenu() {
    MAIN INIT FUNCTION
 ---------------------------- */
 function initHeader() {
-  updateHeaderHeight();
+  updateBaseHeaderHeight();
   initBurgerMenu();
   initMobileDropdowns();
   handleHeaderShrink();
 
   // recalc height on resize
-  window.addEventListener("resize", updateHeaderHeight);
+  window.addEventListener("resize", () => {
+    updateBaseHeaderHeight();
+  });
 }
 
 /* Make function available to main.js */
