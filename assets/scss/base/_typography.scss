@@ -4,7 +4,7 @@
 
 body {
   font-family: var(--font-main);
-  font-size: 16px;
+  font-size: var(--font-size-base, 16px);
   color: var(--color-text);
   line-height: 1.6;
   background-color: var(--color-bg);
@@ -16,9 +16,40 @@ h2,
 h3,
 h4,
 h5 {
+  font-family: var(--title-font, var(--font-main));
   font-weight: var(--font-weight-bold);
+  color: var(--color-title, var(--color-text));
   line-height: 1.4;
   margin-bottom: 16px;
+}
+
+h1 {
+  font-size: var(--h1-size, var(--title-size, 48px));
+}
+
+h2 {
+  font-size: var(--h2-size, calc(var(--title-size, 48px) * 0.85));
+}
+
+h3 {
+  font-size: var(--h3-size, calc(var(--title-size, 48px) * 0.72));
+}
+
+h4 {
+  font-size: var(--h4-size, calc(var(--title-size, 48px) * 0.6));
+}
+
+h5 {
+  font-size: var(--h5-size, calc(var(--title-size, 48px) * 0.5));
+}
+
+h6 {
+  font-size: var(--h6-size, calc(var(--title-size, 48px) * 0.42));
+  font-family: var(--title-font, var(--font-main));
+  font-weight: var(--font-weight-medium);
+  color: var(--color-title, var(--color-text));
+  line-height: 1.4;
+  margin-bottom: 12px;
 }
 
 a {

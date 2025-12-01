@@ -4,7 +4,16 @@
     <div class="hero__content">
       [[+overtitle:notempty=`<p class="hero__subtitle" data-anim="fade-up">[[+overtitle]]</p>`]]
 
-      [[+title:notempty=`<h1 class="hero__title" data-anim="fade-up" data-anim-delay="100">[[+title]]</h1>`]]
+      [[+title:notempty=`
+      <h1
+        class="hero__title"
+        data-anim="fade-up"
+        data-anim-delay="100"
+        style="[[+title_size:notempty=`font-size:[[+title_size]];`]][[+title_color:notempty=`color:[[+title_color]];`]]"
+      >
+        [[+title]]
+      </h1>
+      `]]
 
       [[+text:notempty=`<p class="hero__text" data-anim="fade-up" data-anim-delay="200">[[+text]]</p>`]]
 

@@ -8,9 +8,15 @@
 [[++color_gray:ifnotempty=`  --color-gray: #[[++color_gray]];`]]
 [[++body-color:ifnotempty=`  --color-bg: #[[++body-color]];`]]
 [[++font-color:ifnotempty=`  --color-text: #[[++font-color]];`]]
+[[++pagecolor4:ifnotempty=`  --color-title: #[[++pagecolor4]];`]]
 
 [[++font1:ifnotempty=`  --font-main: [[++font1]];`]]
 [[++font2:ifnotempty=`  --font-secondary: [[++font2]];`]]
+[[++font2:ifnotempty=`  --title-font: [[++font2]];`]]
+[[++font_size:ifnotempty=`  --font-size-base: [[++font_size]]px;`]]
+[[++title_size:ifnotempty=`  --title-size: [[++title_size]]px;`]]
+[[++title_size:ifnotempty=`  --h1-size: [[++title_size]]px;`]]
+
 [[++font_weight_regular:ifnotempty=`  --font-weight-regular: [[++font_weight_regular]];`]]
 [[++font_weight_medium:ifnotempty=`  --font-weight-medium: [[++font_weight_medium]];`]]
 [[++font_weight_semibold:ifnotempty=`  --font-weight-semibold: [[++font_weight_semibold]];`]]
