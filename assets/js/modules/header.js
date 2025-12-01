@@ -100,8 +100,15 @@ function initMobileDropdowns() {
 function initBurgerMenu() {
   const burger = document.querySelector(".js-burger");
   const mobileMenu = document.querySelector(".js-mobile-menu");
+  const nav = document.querySelector(".header__nav");
 
   if (!burger || !mobileMenu) return;
+
+  const closeMobileMenu = () => {
+    burger.classList.remove("active");
+    mobileMenu.classList.remove("open");
+    document.body.classList.remove("no-scroll");
+  };
 
   burger.addEventListener("click", () => {
     const active = burger.classList.toggle("active");
@@ -110,6 +117,25 @@ function initBurgerMenu() {
     // disable body scroll
     document.body.classList.toggle("no-scroll", active);
   });
+
+  const applyResponsiveMenu = () => {
+    const isMobile = isMobileViewport();
+
+    if (nav) {
+      nav.style.display = isMobile ? "none" : "";
+    }
+
+    // Force-show burger on mobile breakpoint, rely on CSS otherwise
+    burger.style.display = isMobile ? "flex" : "";
+
+    if (!isMobile) {
+      closeMobileMenu();
+    }
+  };
+
+  // initial sync + resize listener
+  applyResponsiveMenu();
+  window.addEventListener("resize", applyResponsiveMenu);
 }
 
 /* ---------------------------
