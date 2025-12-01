@@ -10,4 +10,5 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof initProjectsSlider === "function") initProjectsSlider();
   if (typeof initFaq === "function") initFaq();
   if (typeof initContactForm === "function") initContactForm();
+  if (typeof initDateVisibility === "function") initDateVisibility();
 });
