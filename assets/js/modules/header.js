@@ -65,7 +65,7 @@ function handleHeaderShrink() {
   const header = document.querySelector(".header");
   if (!header) return;
 
-  const shrinkOffset = 80;
+  const shrinkOffset = 0;
 
   const updateState = () => {
     const isSmall = window.scrollY > shrinkOffset;
