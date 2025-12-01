@@ -11,10 +11,15 @@
 
 [[++font1:ifnotempty=`  --font-main: [[++font1]];`]]
 [[++font2:ifnotempty=`  --font-secondary: [[++font2]];`]]
+[[++font_weight_regular:ifnotempty=`  --font-weight-regular: [[++font_weight_regular]];`]]
+[[++font_weight_medium:ifnotempty=`  --font-weight-medium: [[++font_weight_medium]];`]]
+[[++font_weight_semibold:ifnotempty=`  --font-weight-semibold: [[++font_weight_semibold]];`]]
+[[++font_weight_bold:ifnotempty=`  --font-weight-bold: [[++font_weight_bold]];`]]
 
 [[++ui_radius:ifnotempty=`  --radius: [[++ui_radius]];`]]
 [[++section_padding:ifnotempty=`  --section-padding: [[++section_padding]]px;`]]
 [[++transition_fast:ifnotempty=`  --transition-fast: [[++transition_fast]];`]]
+[[++naviumbruch:ifnotempty=` --header-mobile-breakpoint: [[++naviumbruch]];`]]
 
 [[++maxwidth:ifnotempty=`  --container-width: [[++maxwidth]]px;`]]
 [[++container_narrow_width:ifnotempty=`  --container-narrow-width: [[++container_narrow_width]]px;`]]
